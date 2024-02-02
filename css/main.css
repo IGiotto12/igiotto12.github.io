@@ -32,4 +32,5 @@ footer {
 section {
   margin: 100px;
   display: flex;
+  justify_content: space-between;
 }
