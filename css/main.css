@@ -1,6 +1,7 @@
 header{
   background-color: #AFFFF8;
   color: black;
+  width = 100%;
   padding: 10px 0;
   text-align: center;
 }
@@ -20,6 +21,7 @@ nav a:hover{
 footer {
   background-color: #AFFFF8;
   color: black;
+  width = 100%;
   text-align: center;
   padding: 1em 0;
   position: relative;
@@ -27,6 +29,7 @@ footer {
   width: 100%;
 }
 
-frame {
+section {
   margin: 100px;
+  display: flex;
 }
