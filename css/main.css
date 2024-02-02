@@ -7,7 +7,7 @@ body{
 
 header{
   background-color: #000;
-  color:black;
+  color: white;
   padding: 10px 0;
   text-align: center;
 }
@@ -25,20 +25,11 @@ nav a:hover{
 }
 
 footer {
-  background-color: #000;
+  background-color: white;
   color: black;
   text-align: center;
   padding: 1em 0;
   position: relative;
   bottom: 0;
   width: 100%;
-}
-
-.separator {
-  display: flex;
-  align-items: center;
-}
-
-.separator img {
-  margin-right: 20px;
 }
