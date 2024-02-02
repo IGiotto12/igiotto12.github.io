@@ -31,7 +31,7 @@ footer {
 
 container {
   margin: 50px;
-  display: flex;
+  display: row;
   flex-direction: column;
   justify_content: space-between;
 }
