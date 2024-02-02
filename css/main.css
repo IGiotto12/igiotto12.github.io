@@ -46,6 +46,5 @@ container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  background-image: url="../imgages/some1.gif";
   cursor: pointer;
 }
