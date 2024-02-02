@@ -6,8 +6,8 @@ body{
 }
 
 header{
-  background-color: #333;
-  color:white;
+  background-color: #000;
+  color:black;
   padding: 10px 0;
   text-align: center;
 }
@@ -25,8 +25,8 @@ nav a:hover{
 }
 
 footer {
-  background-color: #333;
-  color: white;
+  background-color: #000;
+  color: black;
   text-align: center;
   padding: 1em 0;
   position: relative;
