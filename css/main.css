@@ -34,3 +34,10 @@ section {
   display: flex;
   justify_content: space-between;
 }
+
+. grids {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-image: url="../img/some1.jpg";
+}
