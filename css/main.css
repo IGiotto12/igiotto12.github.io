@@ -29,7 +29,7 @@ footer {
   width: 100%;
 }
 
-section {
+container {
   margin: 50px;
   display: flex;
   flex-direction: column;
