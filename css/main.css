@@ -30,8 +30,9 @@ footer {
 }
 
 section {
-  margin: 100px;
+  margin: 50px;
   display: flex;
+  flex-direction: column;
   justify_content: space-between;
 }
 
