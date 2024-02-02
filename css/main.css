@@ -44,8 +44,5 @@ container {
   border-right: 2px solid red;
   border-bottom: 2px solid green;
   border-left: 2px solid blue;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   cursor: pointer;
 }
