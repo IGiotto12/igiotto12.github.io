@@ -1,5 +1,5 @@
 header{
-  background-color: white;
+  background-color: #AFFFF8;
   color: black;
   padding: 10px 0;
   text-align: center;
@@ -13,7 +13,7 @@ nav a{
 }
 
 nav a:hover{
-  background-color: #ddd;
+  background-color: #90FFFC;
   color: black;
 }
 
