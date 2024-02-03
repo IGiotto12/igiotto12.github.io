@@ -1,0 +1,9 @@
+.grid1 {
+  width: 100px;
+  height: 100px;
+  border-top: 2px solid #000;
+  border-right: 2px solid red;
+  border-bottom: 2px solid green;
+  border-left: 2px solid blue;
+  cursor: url(https://cdn.custom-cursor.com/db/4828/32/arrow2747.png), auto;
+}
