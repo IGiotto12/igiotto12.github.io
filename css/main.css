@@ -30,7 +30,7 @@ footer {
 
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center; 
   flex-wrap: wrap; 
   gap: 20px;
@@ -42,5 +42,5 @@ footer {
   border-right: 2px solid red;
   border-bottom: 2px solid green;
   border-left: 2px solid blue;
-  cursor: pointer;
+  cursor: url("../src/cursor1.img"), auto;
 }
