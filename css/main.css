@@ -1,3 +1,8 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
 header{
   background-color: #AFFFF8;
   color: black;
@@ -28,6 +33,7 @@ footer {
   bottom: 0;
 }
 
+
 h1 {
   text-align: center;
   font-style: bold;
@@ -35,20 +41,19 @@ h1 {
 
 .flex-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
+  height: 250px;
+}
+
+.flex-img {
+  width: 200px;
   height: 200px;
 }
 
-.flex-item img {
-  max-width: 10%;
-  max-height: 50%;
-  display: block;
-  object-fit: contain;
-}
-
-.flex-item p {
-  flex-grow: 3;
+.textbox {
+  width: 80%;
+  height: 100px;
 }
