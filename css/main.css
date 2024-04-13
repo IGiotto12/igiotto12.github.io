@@ -34,16 +34,6 @@ footer {
   bottom: 0;
 }
 
-container {
-  display: flex;
-  vertical-align: auto;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 100%;
-  height: 200px;
-  padding: 3%;
-}
-
 li {
   list-style-position: inside;
 }
