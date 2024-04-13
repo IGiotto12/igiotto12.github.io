@@ -13,7 +13,7 @@ header{
 }
 
 nav a{
-  color: black;
+  color: white;
   padding: 14px 20px;
   text-decoration: none;
   display: inline-block;
@@ -21,7 +21,7 @@ nav a{
 
 nav a:hover{
   background-color: #29958c;
-  color: #ffffff;
+  color:black;
 }
 
 footer {
@@ -36,6 +36,7 @@ footer {
 
 container {
   display: flex;
+  vertical-align: auto;
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
@@ -43,9 +44,8 @@ container {
   padding: 3%;
 }
 
-.flex-img {
-  width: 200px;
-  height: 200px;
+li {
+  list-style-position: inside;
 }
 
 .text {
