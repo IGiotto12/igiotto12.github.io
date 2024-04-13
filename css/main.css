@@ -5,23 +5,23 @@ body, html {
 
 
 header{
-  background-color: #28a79c;
   color: black;
   width: 100%;
+  height: auto;
   padding: 10px 0;
   text-align: center;
 }
 
 nav a{
-  color: white;
+  color: black;
   padding: 14px 20px;
   text-decoration: none;
   display: inline-block;
 }
 
 nav a:hover{
-  background-color: #29958c;
-  color:black;
+  background-color: #a1a7a7;
+  color:white;
 }
 
 footer {
@@ -36,6 +36,20 @@ footer {
 
 li {
   list-style-position: inside;
+}
+
+#header {
+  position: fixed;
+  /* or 'absolute' if that fits your design better */
+  top: 0;
+  width: 100%;
+  transition: top 0.3s;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.header-hidden {
+  top: -100%;
+  /* Adjust this value depending on the height of your header */
 }
 
 .text {
