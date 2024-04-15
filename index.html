@@ -6,6 +6,7 @@
     <meta naem="Description" content="Math-Computer Science Student at UCSD - Jiaqi Wu">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/frame.css">
+    <link rel="stylesheet" href="css/animation.css">
     <title>Jiaqi Wu</title>
     <link rel="icon" href="icon/favicon.ico" type="image/x-icon">
   </head>
@@ -22,13 +23,22 @@
     </header>
 
     <div id="frame">
-        <a href="https://www.yuanshen.com/"  title="启动！"><img src="src/some1.gif" alt="profile" width="200" height="200"></a>
-        <div class="textbox">This is Jiaqi Wu, a Math-Computer Science first-year undergraduate 
+      <div class="flexbox">
+        <div class="flex-item">
+          <div class="scratch-card">
+            <img src="../src/selfie.jpg" alt="selfie" class="hidden-image">
+            <canvas class="top-layer"></canvas>
+          </div>
+        </div>
+        <script src="../js/scratch.js" defer></script>
+        <div class="flex-item">
+          <div class="textbox">This is Jiaqi Wu, a Math-Computer Science first-year undergraduate 
           at UC San Diego. I plan to double major in Cog-Sci specializing in Design and Interaction next year. 
           I am frequently looking for an internship/research program in SWE, data analysis, or UI/UX this summer 2024. 
           Uncertainty is a fundamental feature of human activity. I was inspired to lauch a porject called IGRF for a time management purpose.
+          </div>
         </div>
-
+      </div>
     </div>
     
     <footer>

@@ -66,3 +66,15 @@ li {
   width: 70%;
   padding: 50px;
 }
+
+.flexbox {
+  display: flex;
+  margin:5%;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-item {
+  display:flex;
+  margin: 5px;
+}
