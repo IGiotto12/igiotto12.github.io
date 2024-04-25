@@ -10,34 +10,42 @@
     <title>Jiaqi Wu</title>
     <link rel="icon" href="icon/favicon.ico" type="image/x-icon">
   </head>
-    <body>
 
+  <body>
     <header id="header">
       <nav>
         <a href="index.html">Home</a>
         <a href="subpages/resume.html">Resume</a>
-				<a href="subpages/projects.html">Projects</a>
         <a href="subpages/aboutme.html">About</a>
       </nav>
       <script src="js/header_hidden.js" defer></script>
     </header>
 
-    <div id="frame">
-      <div class="flexbox">
-        <div class="flex-item">
-          <div class="scratch-card">
-            <img src="../src/selfie.jpg" alt="selfie" class="hidden-image">
-            <canvas class="top-layer"></canvas>
+    <div class="bcg">
+      <div class="page">
+
+        <div class="rowbox">
+          <div class="row-item">
+            <div class="scratch-card">
+              <img src="src/selfie.jpg" alt="selfie" class="hidden-image">
+              <canvas class="top-layer"></canvas>
+            </div>
+          </div>
+          <script src="js/scratch.js" defer></script>
+          <div class="row-item textbox">
+            This is Jiaqi Wu, a Math-Computer Science first-year undergraduate 
+            at UC San Diego. I plan to double major in Cog-Sci specializing in Design and Interaction next year. 
+            am frequently looking for an internship/research program in SWE, data analysis, or UI/UX this summer 2024. 
+            Recently, I attemped to use <a href="https://www.notion.so/Time-Regression-45d01a85b2e142c2a6c36a83345cd59a?pvs=4">Notion</a> to manage my work and life balance. 
           </div>
         </div>
-        <script src="../js/scratch.js" defer></script>
-        <div class="flex-item">
-          <div class="textbox">This is Jiaqi Wu, a Math-Computer Science first-year undergraduate 
-          at UC San Diego. I plan to double major in Cog-Sci specializing in Design and Interaction next year. 
-          I am frequently looking for an internship/research program in SWE, data analysis, or UI/UX this summer 2024. 
-          Uncertainty is a fundamental feature of human activity. I was inspired to lauch a porject called IGRF for a time management purpose.
-          </div>
+
+        <div class="rowbox">
         </div>
+        <div class="background-container">
+          <a href="https://chat.openai.com/g/g-cREuwGO5N-villager" target="_blank"><img src="src/gpt_villager.webp" alt="villager" class="image-animate"></a>
+        </div>
+
       </div>
     </div>
     
