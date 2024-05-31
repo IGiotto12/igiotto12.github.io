@@ -3,10 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta naem="Description" content="Math-Computer Science Student at UCSD - Jiaqi Wu">
+    <meta naem="Description" content="A Talented Math-CS Student at UCSD - Jiaqi Wu">
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/frame.css">
-    <link rel="stylesheet" href="css/animation.css">
     <title>Jiaqi Wu</title>
     <link rel="icon" href="icon/favicon.ico" type="image/x-icon">
   </head>
@@ -24,26 +23,56 @@
     <div class="bcg">
       <div class="page">
 
-        <div class="rowbox">
-          <div class="row-item">
-            <div class="scratch-card">
-              <img src="src/selfie.jpg" alt="selfie" class="hidden-image">
-              <canvas class="top-layer"></canvas>
+        <div class="introduction">
+          <div class="intro-image">
+            <h1>Jiaqi Wu (<b>吴佳麒</b>)</h1>
+            <img src="src/selfie.jpg" alt="selfie of Jiaqi">
+            <div class="social-icons">
+              <a href="https://github.com/IGiotto12" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
+              </a>
+              <a href="https://www.instagram.com/igiotto12" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png" alt="Instagram">
+              </a>
+              <a href="https://act.ucsd.edu/myTritonlink20/display.htm" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/UCSD_Seal.png" alt="UCSD">
+              </a>
+
             </div>
           </div>
-          <script src="js/scratch.js" defer></script>
-          <div class="row-item textbox">
-            This is Jiaqi Wu, a Math-Computer Science first-year undergraduate 
-            at UC San Diego. I plan to double major in Cog-Sci specializing in Design and Interaction next year. 
-            am frequently looking for an internship/research program in SWE, data analysis, or UI/UX this summer 2024. 
-            Recently, I attemped to use <a href="https://www.notion.so/Time-Regression-45d01a85b2e142c2a6c36a83345cd59a?pvs=4">Notion</a> to manage my work and life balance. 
+          <div class="intro-text board">
+            <p id="typewriter-text"></p>
           </div>
+          <script src="js/typewriter.js"></script>
         </div>
 
-        <div class="rowbox">
+        <!-- Project banner section -->
+        <div class="project-banner">
+          <h2>Projects Gallery</h2>
         </div>
-        <div class="background-container">
-          <a href="https://chat.openai.com/g/g-cREuwGO5N-villager" target="_blank"><img src="src/gpt_villager.webp" alt="villager" class="image-animate"></a>
+
+        <!-- Project section -->
+        <div class="project-section">
+          <div class="project-card">
+            <img src="src/agential.png" alt="Agential Project Pic">
+            <h3>Agential</h3>
+            <p>The encyclopedia of popular LLM-based agents prompting and fine-tuning methods.</p>
+            <a href="https://agential.readthedocs.io/en/latest/" target="_blank">Learn More</a>
+          </div>
+          <div class="project-card">
+            <img src="src/notion.png" alt="Notion Project Pic">
+            <h3>Time Regression</h3>
+            <p>Time management for wor and study.</p>
+            <a href="https://www.notion.so/Time-Regression-45d01a85b2e142c2a6c36a83345cd59a?pvs=4" target="_blank">Learn More</a>
+          </div>
+          <div class="project-card">
+            <img src="src/gpt_villager.webp" alt="GPT Villager Project Pic">
+            <h3>GPT Villager</h3>
+            <p>Interactive GPT-based character</p>
+            <a href="https://chat.openai.com/g/g-cREuwGO5N-villager" target="_blank">Learn More</a>
+          </div>
+
+          <!-- Add more project cards as needed -->
         </div>
 
       </div>
