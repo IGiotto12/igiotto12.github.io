@@ -1,9 +1,9 @@
-/* Ensure there's enough space for the content below the fixed header */
 .content {
-    margin-top: 80px;
-    /* Adjust this value based on the height of your header */
+    margin-top: 70px;
     padding: 20px;
     box-sizing: border-box;
+    background-color: #b7d1d2;
+    min-height: calc(100vh - 100px);
 }
 
 /* Styling for the research interest section */
@@ -22,12 +22,11 @@
 }
 
 .research-interest p {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.5;
     color: #333;
 }
 
-/* Existing styles for the publication gallery */
 .pubs-gallery {
     display: flex;
     flex-wrap: wrap;

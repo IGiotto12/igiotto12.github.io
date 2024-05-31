@@ -150,18 +150,59 @@ footer {
 }
 
 .project-banner {
+  position: relative;
   text-align: center;
   padding: 20px;
-  background-color: rgb(228, 206, 148);
+  background: linear-gradient(to right, #f0f4f8, #e2e2e2);
   border: 1px solid #ccc;
   width: 100%;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .project-banner h2 {
-  font-size: 24px;
+  font-size: 28px;
+  margin: 0;
+  padding: 10px;
+  color: #333;
+  position: relative;
+  z-index: 1;
+}
+
+.project-banner:before,
+.project-banner:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background: rgba(111, 194, 192, 0.4);
+  z-index: 0;
+}
+
+.project-banner:before {
+  left: 0;
+  transform: skewX(-10deg);
+}
+
+.project-banner:after {
+  right: 0;
+  transform: skewX(10deg);
+}
+
+.project-banner .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .project-section {
