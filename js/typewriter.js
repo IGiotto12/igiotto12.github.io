@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const textElement = document.getElementById('typewriter-text');
-    const text = "Hey, I am a second-year undergrad major in Math-CS at UC San Diego. Planning to double major in Cog-Sci specializing in ML next year. I am frequently looking for an internships in SWE, ML, data analysis, or UI/UX this summer 2025. Nice to meet U";
+    const text = "Hey, I am a 3rd-year undergrad major in Math-CS and minor in ICAM at UC San Diego. I am actively looking for various internship positions about Software Engineer/Machine Learning Engineer/Data Analysis/Web Development this summer 2025. Nice to meet U";
     let index = 0;
 
     function type() {
