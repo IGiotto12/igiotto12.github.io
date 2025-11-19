@@ -395,8 +395,27 @@ nav a:hover::after {
   
   .social-icons { justify-content: center; }
   
-  .nav-container { padding: 15px 20px; }
-  nav ul { display: none; } 
+  .nav-container { 
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  nav ul { 
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+  }
+  
+  nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .logo {
+    text-align: center;
+  }
   
   .page-container { padding-top: 100px; }
 }
