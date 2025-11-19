@@ -3,95 +3,121 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A Talented Math-CS Student at UCSD - Jiaqi Wu">
+    <meta name="description" content="Portfolio of Jiaqi Wu - Math-CS Student at UCSD">
+    <title>Jiaqi Wu | Developer & Researcher</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
-    <title>Jiaqi Wu</title>
     <link rel="icon" href="icon/favicon.ico" type="image/x-icon">
   </head>
 
   <body>
-    <header id="header">
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="html/resume.html">Resume</a></li>
-          <li><a href="html/research.html">Research</a></li>
-        </ul>
-      </nav>
+    <header id="navbar">
+      <div class="nav-container">
+        <div class="logo">JW.</div>
+        <nav>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="html/resume.html">Resume</a></li>
+            <li><a href="html/research.html">Research</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <div class="bcg">
-      <main class="page">
-
-        <section class="introduction">
-          <div class="intro-image">
-            <h1>Jiaqi Wu (<b>吴佳麒</b>)</h1>
-            <img src="src/selfie.jpg" alt="selfie of Jiaqi">
+    <main>
+      <section id="hero" class="hero-section">
+        <div class="container split-layout">
+          <div class="hero-text hidden">
+            <span class="greeting">Hello, I'm</span>
+            <h1>Jiaqi Wu <span class="chinese-name">(吴佳麒)</span></h1>
+            <h2 class="role-title">Math-CS Student at UCSD</h2>
+            
+            <div class="typewriter-container">
+              <p id="typewriter-text"></p><span class="cursor">|</span>
+            </div>
+            
             <div class="social-icons">
-              <a href="https://github.com/IGiotto12" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
+              <a href="https://github.com/IGiotto12" target="_blank" aria-label="GitHub">
+                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
               </a>
-              <a href="https://www.instagram.com/igiotto12" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png" alt="Instagram">
-              </a>
-              <a href="https://act.ucsd.edu/myTritonlink20/display.htm" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/UCSD_Seal.png" alt="UCSD">
-              </a>
+              </div>
+          </div>
 
+          <div class="hero-image hidden">
+            <div class="image-wrapper">
+              <img src="src/selfie.jpg" alt="Jiaqi Wu">
             </div>
           </div>
-          <div class="intro-text board">
-            <p id="typewriter-text"></p>
-          </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- Project banner section -->
-        <section class="project-banner">
-          <h2>Projects Gallery</h2>
-          <div class="icon"></div>
-        </section>
+      <section id="projects" class="projects-section">
+        <div class="container">
+          <div class="section-header hidden">
+            <h2>Projects Gallery</h2>
+            <div class="underline"></div>
+          </div>
         
-        <!-- Project section -->
-        <section class="project-section">
+          <div class="grid-layout">
+            <div class="project-card hidden">
+              <div class="card-image">
+                <img src="src/trai_logo.png" alt="Trai Project">
+                <span class="badge">New</span>
+              </div>
+              <div class="card-content">
+                <h3>Trai</h3>
+                <p>An educational application with AI-Powered Assistant.</p>
+                <a href="https://traied-igiotto12s-projects.vercel.app/" target="_blank" class="btn-link">View Project &rarr;</a>
+              </div>
+            </div>
 
-          <div class="project-card">
-            <img src="src/trai_logo.png" alt="Trai Project">
-            <h3>Trai <span class="badge">New!</span></h3>
-            <p>An educational application with AI-Powered Assitant</p>
-            <a href="https://traied-igiotto12s-projects.vercel.app/" target="_blank">Learn More</a>
+            <div class="project-card hidden">
+              <div class="card-image">
+                 <img src="src/robot.png" alt="Robot in a Box">
+              </div>
+              <div class="card-content">
+                <h3>Robot in a Box</h3>
+                <p>OpenGL & C++ Ray Tracing Algorithm implementation.</p>
+                <a href="https://github.com/IGiotto12/cse167-project" target="_blank" class="btn-link">View Code &rarr;</a>
+              </div>
+            </div>
+
+            <div class="project-card hidden">
+              <div class="card-image">
+                <img src="src/some1.gif" alt="CSSA App">
+              </div>
+              <div class="card-content">
+                <h3>CSSA App</h3>
+                <p>Frontend app development for UCSD CSSA.</p>
+                <a href="https://github.com/IGiotto12/ucsdcssa-app-frontend" target="_blank" class="btn-link">View Code &rarr;</a>
+              </div>
+            </div>
+
+             <div class="project-card hidden">
+              <div class="card-image">
+                <img src="src/notion.png" alt="Notion Dashboard">
+              </div>
+              <div class="card-content">
+                <h3>Student Dashboard</h3>
+                <p>A comprehensive Notion template for academic management.</p>
+                <a href="https://www.notion.so/..." target="_blank" class="btn-link">Get Template &rarr;</a>
+              </div>
+            </div>
           </div>
-
-          <div class="project-card">
-            <img src="src/robot.png" alt="Robot in a Box">
-            <h3>Robot in a Box</h3>
-            <p>Compiled with OpenGL, C++, and GLUT using a Ray Tracing Algorithm</p>
-            <a href="https://github.com/IGiotto12/cse167-project" target="_blank">Learn More</a>
-          </div>
-
-          <div class="project-card">
-            <img src="src/some1.gif" alt="cssalogo">
-            <h3>CSSA App</h3>
-            <p>App development for UCSD CSSA</p>
-            <a href="https://github.com/IGiotto12/ucsdcssa-app-frontend" target="_blank">Learn More</a>
-          </div>
-
-          <div class="project-card">
-            <img src="src/notion.png" alt="Notion">
-            <h3>Student Dashboard</h3>
-            <p>A Template for school stuff management</p>
-            <a href="https://www.notion.so/Time-Regression-45d01a85b2e142c2a6c36a83345cd59a?pvs=4" target="_blank">Learn More</a>
-          </div>
-
-        </section>
-      </main>
-    </div>
+        </div>
+      </section>
+    </main>
     
     <footer>
-      <p>© 2025 Jiaqi's Website | igiotto12@gmail.com</p>
+      <p>© 2025 Jiaqi Wu | Made with ☕ in San Diego</p>
     </footer>
 
-    <script src="js/header_hidden.js" defer></script>
-    <script src="js/typewriter.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
