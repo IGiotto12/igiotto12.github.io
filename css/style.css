@@ -2,6 +2,8 @@
 :root {
   --primary: #2d6a4f; /* Deep Green */
   --accent: #56aeae;  /* Your original Teal */
+  --art-color: #9b59b6; /* Purple for Art */
+  --ml-color: #2980b9;  /* Blue for ML */
   --dark: #1d3557;
   --light: #f1faee;
   --white: #ffffff;
@@ -17,11 +19,11 @@ html {
 body {
   margin: 0;
   font-family: 'Outfit', sans-serif;
-  background-color: #eef5f5; /* Very light teal-grey */
+  background-color: #eef5f5; 
   background-image: 
     radial-gradient(at 0% 0%, hsla(189,68%,75%,1) 0, transparent 50%), 
     radial-gradient(at 100% 100%, hsla(165,58%,70%,1) 0, transparent 50%);
-  background-attachment: fixed; /* Keeps gradient fixed while scrolling */
+  background-attachment: fixed; 
   color: var(--dark);
   line-height: 1.6;
 }
@@ -43,7 +45,7 @@ header {
   width: 100%;
   z-index: 1000;
   background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px); /* The frosted glass effect */
+  backdrop-filter: blur(10px); 
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   transition: transform 0.3s ease;
 }
@@ -88,10 +90,10 @@ nav a:hover::after {
 
 /* 4. Hero Section */
 .hero-section {
-  min-height: 100vh; /* Full screen height */
+  min-height: 100vh; 
   display: flex;
   align-items: center;
-  padding-top: 60px; /* Offset for fixed header */
+  padding-top: 60px; 
 }
 
 .split-layout {
@@ -125,7 +127,7 @@ nav a:hover::after {
 .chinese-name {
   font-size: 2rem;
   font-weight: 400;
-  -webkit-text-fill-color: var(--dark); /* Reset color for chinese chars */
+  -webkit-text-fill-color: var(--dark); 
 }
 
 .role-title {
@@ -158,6 +160,12 @@ nav a:hover::after {
   color: var(--accent);
 }
 
+.social-icons svg {
+  width: 20px;  
+  height: 20px;
+  fill: currentColor; 
+}
+
 .hero-image {
   flex: 1;
   display: flex;
@@ -167,7 +175,7 @@ nav a:hover::after {
 .image-wrapper {
   width: 300px;
   height: 300px;
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* Organic blob shape */
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; 
   overflow: hidden;
   box-shadow: var(--shadow);
   background: var(--white);
@@ -210,6 +218,7 @@ nav a:hover::after {
   gap: 30px;
 }
 
+/* PROJECT CARDS: Interactive Hover Effects */
 .project-card {
   background: var(--white);
   border-radius: 16px;
@@ -217,11 +226,28 @@ nav a:hover::after {
   box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
   transition: var(--transition);
   position: relative;
+  border: 2px solid transparent; /* Keeps size consistent on hover */
 }
 
+/* Hover Effect: General Lift */
 .project-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.2);
+}
+
+/* Hover Effect: Dynamic Border Colors based on Category */
+.project-card[data-category="dev"]:hover {
+    border-color: var(--accent);
+    box-shadow: 0 15px 40px -10px rgba(86, 174, 174, 0.3);
+}
+
+.project-card[data-category="art"]:hover {
+    border-color: var(--art-color);
+    box-shadow: 0 15px 40px -10px rgba(155, 89, 182, 0.3);
+}
+
+.project-card[data-category="ml"]:hover {
+    border-color: var(--ml-color);
+    box-shadow: 0 15px 40px -10px rgba(41, 128, 185, 0.3);
 }
 
 .card-image {
@@ -241,17 +267,27 @@ nav a:hover::after {
   transform: scale(1.05);
 }
 
+/* BADGES */
 .badge {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: #ff6b6b;
   color: white;
   padding: 4px 12px;
   font-size: 0.8rem;
   border-radius: 20px;
   font-weight: 600;
+  transition: transform 0.3s ease;
+  z-index: 2;
 }
+
+.project-card:hover .badge {
+    transform: scale(1.1); /* Enlarge badge on card hover */
+}
+
+.dev-badge { background-color: var(--accent); }
+.art-badge { background-color: var(--art-color); }
+.ml-badge { background-color: var(--ml-color); }
 
 .card-content {
   padding: 25px;
@@ -276,14 +312,67 @@ nav a:hover::after {
   padding-left: 5px;
 }
 
-/* 6. Animations */
+/* 6. Neural Stream (Thoughts) */
+.thoughts-section {
+  padding: 80px 0;
+  background: linear-gradient(to bottom, transparent, rgba(86, 174, 174, 0.05));
+}
+
+.thoughts-feed {
+  max-height: 400px;
+  overflow-y: auto; 
+  padding: 0; 
+  border: 1px solid rgba(255,255,255, 0.8);
+}
+
+.thoughts-feed::-webkit-scrollbar { width: 6px; }
+.thoughts-feed::-webkit-scrollbar-thumb { background-color: rgba(0,0,0,0.1); border-radius: 4px; }
+
+.note-item {
+  padding: 25px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  transition: background 0.2s;
+}
+
+.note-item:last-child { border-bottom: none; }
+.note-item:hover { background: rgba(255,255,255,0.5); }
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.note-tag {
+  color: var(--accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+}
+
+.note-content {
+  font-size: 1rem;
+  color: var(--dark);
+  line-height: 1.5;
+}
+
+.decor-line {
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  margin-top: 20px;
+}
+
+/* 7. Animations */
 @keyframes morph {
   0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
   50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
   100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
 }
 
-/* Scroll Animation Classes */
 .hidden {
   opacity: 0;
   transform: translateY(30px);
@@ -295,10 +384,10 @@ nav a:hover::after {
   transform: translateY(0);
 }
 
-/* 7. Mobile Responsiveness */
+/* 8. Mobile Responsiveness */
 @media (max-width: 768px) {
   .split-layout {
-    flex-direction: column-reverse; /* Image on top on mobile */
+    flex-direction: column-reverse; 
     text-align: center;
   }
   
@@ -307,7 +396,9 @@ nav a:hover::after {
   .social-icons { justify-content: center; }
   
   .nav-container { padding: 15px 20px; }
-  nav ul { display: none; } /* In a real scenario, add a hamburger menu here */
+  nav ul { display: none; } 
+  
+  .page-container { padding-top: 100px; }
 }
 
 footer {
@@ -319,14 +410,12 @@ footer {
 
 /* --- Subpage Specific Styles --- */
 
-/* Wrapper for subpages to handle top padding */
 .page-container {
-  padding-top: 100px; /* Space for fixed header */
+  padding-top: 100px; 
   padding-bottom: 60px;
   min-height: 80vh;
 }
 
-/* Reusable Glass Panel (Used in Resume & Research Interest) */
 .glass-panel {
   background: rgba(255, 255, 255, 0.65);
   backdrop-filter: blur(12px);
@@ -338,7 +427,6 @@ footer {
   margin-bottom: 40px;
 }
 
-/* Active Link Styling in Nav */
 nav a.active {
   color: var(--accent);
 }
@@ -346,7 +434,6 @@ nav a.active::after {
   width: 100%;
 }
 
-/* --- Resume Page Styles --- */
 .resume-header {
   display: flex;
   justify-content: space-between;
@@ -361,8 +448,8 @@ nav a.active::after {
 }
 
 .resume-viewer {
-  height: 75vh; /* Takes up 75% of screen height */
-  padding: 0; /* Remove padding for iframe to fit flush */
+  height: 75vh; 
+  padding: 0; 
   overflow: hidden;
 }
 
@@ -372,7 +459,6 @@ nav a.active::after {
   height: 100%;
 }
 
-/* Primary Button Style */
 .btn-main {
   background-color: var(--accent);
   color: white;
@@ -388,7 +474,6 @@ nav a.active::after {
   transform: translateY(-2px);
 }
 
-/* --- Research Page Styles --- */
 .interest-section h2 {
   color: var(--primary);
   margin-top: 0;
@@ -416,15 +501,12 @@ nav a.active::after {
   margin-bottom: 5px;
 }
 
-/* Mobile adjustments for subpages */
 @media (max-width: 768px) {
   .resume-header {
       flex-direction: column;
       gap: 20px;
       text-align: center;
   }
-  
-  /* On mobile, hiding iframe usually better, rely on download button */
   .resume-viewer {
       height: 50vh;
   }

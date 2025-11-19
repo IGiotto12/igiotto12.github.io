@@ -46,4 +46,64 @@ document.addEventListener('DOMContentLoaded', function () {
             lastScrollTop = scrollTop;
         });
     }
+
+// ... (Keep your existing Typewriter & Header logic here) ...
+
+    // --- 1. Project Filtering Logic ---
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Add to clicked
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            projectCards.forEach(card => {
+                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                    card.classList.remove('hide');
+                    card.classList.add('show'); // Re-trigger fade in if needed
+                } else {
+                    card.classList.add('hide');
+                    card.classList.remove('show');
+                }
+            });
+        });
+    });
+
+    // --- 2. Neural Stream Fetcher (JSON to HTML) ---
+    const feedContainer = document.getElementById('feed-container');
+    
+    if(feedContainer) {
+        fetch('data/thoughts.json')
+            .then(response => response.json())
+            .then(data => {
+                feedContainer.innerHTML = ''; // Clear loading text
+                
+                data.forEach(note => {
+                    const noteDiv = document.createElement('div');
+                    noteDiv.classList.add('note-item');
+                    
+                    noteDiv.innerHTML = `
+                        <div class="note-header">
+                            <span class="note-tag">#${note.tag}</span>
+                            <span class="note-date">${note.date}</span>
+                        </div>
+                        <div class="note-content">
+                            ${note.content}
+                        </div>
+                    `;
+                    
+                    feedContainer.appendChild(noteDiv);
+                });
+            })
+            .catch(error => {
+                console.error('Error loading thoughts:', error);
+                feedContainer.innerHTML = '<div class="note-item">Error loading neural stream.</div>';
+            });
+    }
+
 });
