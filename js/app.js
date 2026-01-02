@@ -1,5 +1,55 @@
 document.addEventListener('DOMContentLoaded', function () {
-    
+
+    // --- 0. Custom Cursor (Simple Follower) ---
+    // Create cursor elements
+    const cursorDot = document.createElement('div');
+    const cursorRing = document.createElement('div');
+    cursorDot.className = 'cursor-dot';
+    cursorRing.className = 'cursor-ring';
+    document.body.appendChild(cursorDot);
+    document.body.appendChild(cursorRing);
+
+    document.addEventListener('mousemove', (e) => {
+        cursorDot.style.left = e.clientX + 'px';
+        cursorDot.style.top = e.clientY + 'px';
+
+        // Slight delay for ring
+        setTimeout(() => {
+            cursorRing.style.left = e.clientX + 'px';
+            cursorRing.style.top = e.clientY + 'px';
+        }, 50);
+    });
+
+    // Add hover states
+    const hoverables = document.querySelectorAll('a, button, .project-card');
+    hoverables.forEach(el => {
+        el.addEventListener('mouseenter', () => cursorRing.classList.add('active'));
+        el.addEventListener('mouseleave', () => cursorRing.classList.remove('active'));
+    });
+
+    // --- 0.1 Project Card 3D Tilt ---
+    const cards = document.querySelectorAll('.project-card');
+
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left; // x position within the element.
+            const y = e.clientY - rect.top;  // y position within the element.
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = ((y - centerY) / centerY) * -10; // Max rotation deg
+            const rotateY = ((x - centerX) / centerX) * 10;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+        });
+    });
+
     // --- 1. Your Specific Typewriter Logic ---
     const textElement = document.getElementById('typewriter-text');
     // Only run this if the element exists on the current page (prevents errors on Resume/Research pages)
@@ -11,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (index < text.length) {
                 textElement.innerHTML += text.charAt(index);
                 index++;
-                setTimeout(type, 15); 
+                setTimeout(type, 15);
             }
         }
         type();
@@ -31,23 +81,44 @@ document.addEventListener('DOMContentLoaded', function () {
     const hiddenElements = document.querySelectorAll('.hidden');
     hiddenElements.forEach((el) => observer.observe(el));
 
-    // --- 3. Header Hide/Show Logic ---
+    // --- 3. Header & Scroll Spy Logic ---
     let lastScrollTop = 0;
     const header = document.getElementById('navbar');
-    
-    if(header) {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-container nav ul li a');
+
+    if (header) {
         window.addEventListener('scroll', () => {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            // Header Hide/Show
             if (scrollTop > lastScrollTop) {
-                header.style.transform = "translateY(-100%)"; 
+                header.style.transform = "translateY(-100%)";
             } else {
-                header.style.transform = "translateY(0)"; 
+                header.style.transform = "translateY(0)";
             }
             lastScrollTop = scrollTop;
+
+            // Scroll Spy
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(li => {
+                li.classList.remove('active');
+                if (li.getAttribute('href').includes(current)) {
+                    li.classList.add('active');
+                }
+            });
         });
     }
 
-// ... (Keep your existing Typewriter & Header logic here) ...
+    // ... (Keep your existing Typewriter & Header logic here) ...
 
     // --- 1. Project Filtering Logic ---
     const filterBtns = document.querySelectorAll('.filter-btn');
@@ -76,17 +147,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // --- 2. Neural Stream Fetcher (JSON to HTML) ---
     const feedContainer = document.getElementById('feed-container');
-    
-    if(feedContainer) {
+
+    if (feedContainer) {
         fetch('data/thoughts.json')
             .then(response => response.json())
             .then(data => {
                 feedContainer.innerHTML = ''; // Clear loading text
-                
+
                 data.forEach(note => {
                     const noteDiv = document.createElement('div');
                     noteDiv.classList.add('note-item');
-                    
+
                     noteDiv.innerHTML = `
                         <div class="note-header">
                             <span class="note-tag">#${note.tag}</span>
@@ -96,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             ${note.content}
                         </div>
                     `;
-                    
+
                     feedContainer.appendChild(noteDiv);
                 });
             })
@@ -107,264 +178,122 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // --- 3. Neural Network Floating Objects ---
-    const floatingBg = document.getElementById('floating-background');
-    const neuralConnections = document.getElementById('neural-connections');
-    
-    if(floatingBg && neuralConnections) {
-        class Neuron {
-            constructor(x, y, size, id, vx, vy, opacity) {
-                this.x = x;
-                this.y = y;
-                this.size = size;
-                this.id = id; // Neuron number
-                this.vx = vx; // velocity x
-                this.vy = vy; // velocity y
-                this.opacity = opacity; // Random opacity
-                this.hoverOpacity = Math.min(opacity + 0.15, 0.5); // Slightly brighter on hover
-                this.mass = size; // mass proportional to size
-                this.element = this.createElement();
-                this.isDragging = false;
-            }
+    // --- 3. Neural Network Canvas Animation ---
+    const canvas = document.getElementById('neural-canvas');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
 
-            createElement() {
-                const div = document.createElement('div');
-                div.className = 'floating-object';
-                div.style.width = this.size + 'px';
-                div.style.height = this.size + 'px';
-                div.style.left = this.x + 'px';
-                div.style.top = this.y + 'px';
-                div.style.opacity = this.opacity;
-                
-                // Add mouse interaction
-                div.addEventListener('mousedown', (e) => {
-                    this.isDragging = true;
-                    this.vx = 0;
-                    this.vy = 0;
-                    e.preventDefault();
-                });
-                
-                // Hover effect
-                div.addEventListener('mouseenter', () => {
-                    div.style.opacity = this.hoverOpacity;
-                });
-                
-                div.addEventListener('mouseleave', () => {
-                    div.style.opacity = this.opacity;
-                });
-                
-                floatingBg.appendChild(div);
-                return div;
+        // Configuration
+        const config = {
+            particleCount: 80,
+            connectionDistance: 150,
+            mouseDistance: 250,
+            baseSpeed: 0.1,
+            colors: {
+                particles: 'rgba(45, 52, 54, 0.5)', // Dark Grey
+                lines: 'rgba(45, 52, 54, 0.1)'     // Very faint grey lines
+            }
+        };
+
+        const mouse = { x: null, y: null };
+
+        // Particle Class
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * config.baseSpeed;
+                this.vy = (Math.random() - 0.5) * config.baseSpeed;
+                this.size = Math.random() * 2 + 1;
             }
 
             update() {
-                if (this.isDragging) return;
-
-                // Update position (no gravity, just drift)
                 this.x += this.vx;
                 this.y += this.vy;
 
-                // Boundary collision with bounce
-                const bounds = {
-                    width: window.innerWidth,
-                    height: window.innerHeight
-                };
+                // Bounce off edges
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
 
-                // Left/Right boundaries
-                if (this.x <= 0 || this.x + this.size >= bounds.width) {
-                    this.vx *= -0.9; // Soft bounce
-                    this.x = Math.max(0, Math.min(this.x, bounds.width - this.size));
+                // Mouse Interaction
+                if (mouse.x != null) {
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < config.mouseDistance) {
+                        const forceDirectionX = dx / distance;
+                        const forceDirectionY = dy / distance;
+                        const force = (config.mouseDistance - distance) / config.mouseDistance;
+                        const directionX = forceDirectionX * force * 0.6;
+                        const directionY = forceDirectionY * force * 0.6;
+
+                        this.vx += directionX;
+                        this.vy += directionY;
+                    }
                 }
-
-                // Top/Bottom boundaries
-                if (this.y <= 0 || this.y + this.size >= bounds.height) {
-                    this.vy *= -0.9; // Soft bounce
-                    this.y = Math.max(0, Math.min(this.y, bounds.height - this.size));
-                }
-
-                // Air resistance only (no gravity)
-                this.vx *= 0.999;
-                this.vy *= 0.999;
-
-                // Update DOM
-                this.element.style.left = this.x + 'px';
-                this.element.style.top = this.y + 'px';
             }
 
-            getCenter() {
-                return {
-                    x: this.x + this.size / 2,
-                    y: this.y + this.size / 2
-                };
-            }
-
-            distanceTo(other) {
-                const c1 = this.getCenter();
-                const c2 = other.getCenter();
-                const dx = c2.x - c1.x;
-                const dy = c2.y - c1.y;
-                return Math.sqrt(dx * dx + dy * dy);
-            }
-
-            checkCollision(other) {
-                const distance = this.distanceTo(other);
-                const minDistance = (this.size + other.size) / 2;
-
-                // Check if collision occurred
-                if (distance < minDistance) {
-                    const c1 = this.getCenter();
-                    const c2 = other.getCenter();
-                    const dx = c2.x - c1.x;
-                    const dy = c2.y - c1.y;
-
-                    // Normalize collision vector
-                    const nx = dx / distance;
-                    const ny = dy / distance;
-
-                    // Relative velocity
-                    const dvx = other.vx - this.vx;
-                    const dvy = other.vy - this.vy;
-
-                    // Relative velocity in collision normal direction
-                    const dvn = dvx * nx + dvy * ny;
-
-                    // Do not resolve if velocities are separating
-                    if (dvn > 0) return;
-
-                    // Collision impulse (softer)
-                    const impulse = (1.5 * dvn) / (this.mass + other.mass);
-
-                    // Update velocities
-                    this.vx += impulse * other.mass * nx;
-                    this.vy += impulse * other.mass * ny;
-                    other.vx -= impulse * this.mass * nx;
-                    other.vy -= impulse * this.mass * ny;
-
-                    // Separate objects to prevent overlap
-                    const overlap = minDistance - distance;
-                    const separationX = (overlap / 2) * nx;
-                    const separationY = (overlap / 2) * ny;
-
-                    this.x -= separationX;
-                    this.y -= separationY;
-                    other.x += separationX;
-                    other.y += separationY;
-                }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = config.colors.particles;
+                ctx.fill();
             }
         }
 
-        // Create neurons
-        const neurons = [];
-        const numNeurons = 10;
-        const connectionDistance = 300; // Max distance for visible connections
-
-        for (let i = 0; i < numNeurons; i++) {
-            const size = Math.random() * 30 + 50; // 50-80px
-            const x = Math.random() * (window.innerWidth - size);
-            const y = Math.random() * (window.innerHeight - size);
-            const vx = (Math.random() - 0.5) * 1.5; // Slower movement
-            const vy = (Math.random() - 0.5) * 1.5;
-            const opacity = Math.random() * 0.35 + 0.15; // Random opacity between 0.15 and 0.5
-            
-            neurons.push(new Neuron(x, y, size, i + 1, vx, vy, opacity));
+        function init() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            particles = [];
+            for (let i = 0; i < config.particleCount; i++) {
+                particles.push(new Particle());
+            }
         }
 
-        // Draw neural connections
-        function drawConnections() {
-            // Clear previous connections
-            neuralConnections.innerHTML = '';
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.clearRect(0, 0, width, height);
 
-            for (let i = 0; i < neurons.length; i++) {
-                for (let j = i + 1; j < neurons.length; j++) {
-                    const distance = neurons[i].distanceTo(neurons[j]);
-                    
-                    if (distance < connectionDistance) {
-                        const c1 = neurons[i].getCenter();
-                        const c2 = neurons[j].getCenter();
-                        
-                        // Calculate opacity based on distance (closer = more visible)
-                        const opacity = 1 - (distance / connectionDistance);
-                        const strokeWidth = opacity * 2;
-                        
-                        // Create SVG line
-                        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-                        line.setAttribute('x1', c1.x);
-                        line.setAttribute('y1', c1.y);
-                        line.setAttribute('x2', c2.x);
-                        line.setAttribute('y2', c2.y);
-                        line.setAttribute('stroke', `rgba(86, 174, 174, ${opacity * 0.3})`);
-                        line.setAttribute('stroke-width', strokeWidth);
-                        line.setAttribute('stroke-linecap', 'round');
-                        
-                        neuralConnections.appendChild(line);
+            for (let i = 0; i < particles.length; i++) {
+                let p = particles[i];
+                p.update();
+                p.draw();
+
+                // Draw connections
+                for (let j = i; j < particles.length; j++) {
+                    let p2 = particles[j];
+                    let dx = p.x - p2.x;
+                    let dy = p.y - p2.y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < config.connectionDistance) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = config.colors.lines;
+                        ctx.lineWidth = 1 - (distance / config.connectionDistance);
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
                     }
                 }
             }
         }
 
-        // Mouse interaction
-        let draggedNeuron = null;
-
-        document.addEventListener('mousemove', (e) => {
-            neurons.forEach(neuron => {
-                if (neuron.isDragging) {
-                    neuron.x = e.clientX - neuron.size / 2;
-                    neuron.y = e.clientY - neuron.size / 2;
-                    draggedNeuron = neuron;
-                }
-            });
+        // Event Listeners
+        window.addEventListener('resize', init);
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+        });
+        window.addEventListener('mouseout', () => {
+            mouse.x = null;
+            mouse.y = null;
         });
 
-        document.addEventListener('mouseup', () => {
-            neurons.forEach(neuron => {
-                if (neuron.isDragging) {
-                    neuron.isDragging = false;
-                    // Add some velocity on release
-                    neuron.vx = (Math.random() - 0.5) * 3;
-                    neuron.vy = (Math.random() - 0.5) * 3;
-                }
-            });
-            draggedNeuron = null;
-        });
-
-        // Animation loop
-        function animate() {
-            // Update all neurons
-            neurons.forEach(neuron => neuron.update());
-
-            // Check collisions between all pairs
-            for (let i = 0; i < neurons.length; i++) {
-                for (let j = i + 1; j < neurons.length; j++) {
-                    neurons[i].checkCollision(neurons[j]);
-                }
-            }
-
-            // Draw connections
-            drawConnections();
-
-            requestAnimationFrame(animate);
-        }
-
+        init();
         animate();
-
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            neurons.forEach(neuron => {
-                if (neuron.x + neuron.size > window.innerWidth) {
-                    neuron.x = window.innerWidth - neuron.size;
-                }
-                if (neuron.y + neuron.size > window.innerHeight) {
-                    neuron.y = window.innerHeight - neuron.size;
-                }
-            });
-            
-            // Update SVG dimensions
-            neuralConnections.setAttribute('width', window.innerWidth);
-            neuralConnections.setAttribute('height', window.innerHeight);
-        });
-
-        // Set initial SVG dimensions
-        neuralConnections.setAttribute('width', window.innerWidth);
-        neuralConnections.setAttribute('height', window.innerHeight);
     }
 
 });

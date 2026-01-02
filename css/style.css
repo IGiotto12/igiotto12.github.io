@@ -1,15 +1,26 @@
 /* 1. Variables & Reset */
 :root {
-  --primary: #2d6a4f; /* Deep Green */
-  --accent: #56aeae;  /* Your original Teal */
-  --art-color: #9b59b6; /* Purple for Art */
-  --ml-color: #2980b9;  /* Blue for ML */
-  --dark: #1d3557;
-  --light: #f1faee;
-  --white: #ffffff;
+  /* Minimalist Light Palette */
+  --bg-color: #f8f9fa;
+  /* Off-White */
+  --text-primary: #2d3436;
+  /* Dark Charcoal */
+  --text-secondary: #636e72;
+  /* Muted Gray */
+  --accent-cyan: #00b894;
+  /* Subtle Teal */
+  --accent-purple: #6c5ce7;
+  /* Soft Purple */
+
   --glass: rgba(255, 255, 255, 0.7);
-  --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-  --transition: all 0.3s ease;
+  /* Frosted White */
+  --glass-border: 1px solid rgba(0, 0, 0, 0.05);
+  /* Dark subtle border */
+  --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+  /* Soft dark shadow */
+  --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  --white: #ffffff;
 }
 
 html {
@@ -19,17 +30,23 @@ html {
 body {
   margin: 0;
   font-family: 'Outfit', sans-serif;
-  background-color: #eef5f5; 
-  background-image: 
-    radial-gradient(at 0% 0%, hsla(189,68%,75%,1) 0, transparent 50%), 
-    radial-gradient(at 100% 100%, hsla(165,58%,70%,1) 0, transparent 50%);
-  background-attachment: fixed; 
-  color: var(--dark);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
   line-height: 1.6;
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
 }
 
-a { text-decoration: none; color: inherit; }
-ul { list-style: none; padding: 0; margin: 0; }
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
 /* 2. Layout Utilities */
 .container {
@@ -44,11 +61,11 @@ header {
   top: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(15px); 
-  -webkit-backdrop-filter: blur(15px);
-  border-bottom: 1px solid rgba(45, 106, 79, 0.15);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: var(--glass-border);
+  box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
   transition: transform 0.3s ease;
 }
 
@@ -63,8 +80,8 @@ header {
 .logo {
   font-weight: 700;
   font-size: 1.5rem;
-  color: var(--primary);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  color: var(--accent-cyan);
+  text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
 }
 
 nav ul {
@@ -75,13 +92,14 @@ nav ul {
 nav a {
   font-weight: 600;
   position: relative;
-  color: var(--dark);
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  color: var(--text-primary);
   transition: color 0.3s ease;
+  font-size: 0.95rem;
+  /* Slightly smaller for cleaner look */
 }
 
 nav a:hover {
-  color: var(--accent);
+  color: var(--accent-cyan);
 }
 
 nav a::after {
@@ -91,7 +109,7 @@ nav a::after {
   height: 2px;
   bottom: -4px;
   left: 0;
-  background-color: var(--accent);
+  background-color: var(--accent-cyan);
   transition: width 0.3s;
 }
 
@@ -101,10 +119,11 @@ nav a:hover::after {
 
 /* 4. Hero Section */
 .hero-section {
-  min-height: 100vh; 
+  min-height: 80vh;
+  /* Reduced from 100vh to decrease gap */
   display: flex;
   align-items: center;
-  padding-top: 60px; 
+  padding-top: 60px;
 }
 
 .split-layout {
@@ -120,25 +139,31 @@ nav a:hover::after {
 }
 
 .greeting {
-  color: var(--accent);
+  color: var(--accent-cyan);
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
+  margin-bottom: 10px;
+  display: block;
 }
 
 .hero-text h1 {
-  font-size: 3.5rem;
-  margin: 10px 0;
+  font-size: 4rem;
+  /* Larger */
+  margin: 0;
   line-height: 1.1;
-  background: -webkit-linear-gradient(45deg, var(--primary), var(--accent));
+  background: linear-gradient(45deg, var(--text-primary), var(--accent-cyan));
+  background-clip: text;
+  /* Standard property */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  width: fit-content;
 }
 
 .chinese-name {
   font-size: 2rem;
   font-weight: 400;
-  -webkit-text-fill-color: var(--dark); 
+  -webkit-text-fill-color: var(--text-secondary);
 }
 
 .role-title {
@@ -161,7 +186,7 @@ nav a:hover::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: var(--transition);
   color: var(--dark);
 }
@@ -172,9 +197,9 @@ nav a:hover::after {
 }
 
 .social-icons svg {
-  width: 20px;  
+  width: 20px;
   height: 20px;
-  fill: currentColor; 
+  fill: currentColor;
 }
 
 .hero-image {
@@ -186,7 +211,7 @@ nav a:hover::after {
 .image-wrapper {
   width: 300px;
   height: 300px;
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; 
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   overflow: hidden;
   box-shadow: var(--shadow);
   background: var(--white);
@@ -201,7 +226,8 @@ nav a:hover::after {
 
 /* 5. Projects Section */
 .projects-section {
-  padding: 100px 0;
+  padding: 40px 0 100px 0;
+  /* Reduced top padding from 100px */
 }
 
 .section-header {
@@ -230,35 +256,39 @@ nav a:hover::after {
 }
 
 /* PROJECT CARDS: Interactive Hover Effects */
+/* PROJECT CARDS: Glassmorphism & Interaction */
 .project-card {
-  background: var(--white);
+  background: var(--card-bg);
+  /* Use variable */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: var(--glass-border);
+  /* Use variable */
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
-  transition: var(--transition);
+  box-shadow: var(--shadow);
+  /* Use variable */
+  transition: transform 0.1s ease, box-shadow 0.3s ease;
   position: relative;
-  border: 2px solid transparent; /* Keeps size consistent on hover */
+  transform-style: preserve-3d;
+  perspective: 1000px;
 }
 
-/* Hover Effect: General Lift */
-.project-card:hover {
-  transform: translateY(-10px);
-}
-
-/* Hover Effect: Dynamic Border Colors based on Category */
+/* Hover Effect: Glow based on Category */
 .project-card[data-category="dev"]:hover {
-    border-color: var(--accent);
-    box-shadow: 0 15px 40px -10px rgba(86, 174, 174, 0.3);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 20px 40px -10px rgba(100, 255, 218, 0.2);
 }
 
 .project-card[data-category="art"]:hover {
-    border-color: var(--art-color);
-    box-shadow: 0 15px 40px -10px rgba(155, 89, 182, 0.3);
+  border-color: var(--accent-purple);
+  box-shadow: 0 20px 40px -10px rgba(189, 52, 254, 0.2);
 }
 
 .project-card[data-category="ml"]:hover {
-    border-color: var(--ml-color);
-    box-shadow: 0 15px 40px -10px rgba(41, 128, 185, 0.3);
+  border-color: #56aeae;
+  /* Keep teal/blue for ML */
+  box-shadow: 0 20px 40px -10px rgba(86, 174, 174, 0.2);
 }
 
 .card-image {
@@ -293,20 +323,37 @@ nav a:hover::after {
 }
 
 .project-card:hover .badge {
-    transform: scale(1.1); /* Enlarge badge on card hover */
+  transform: scale(1.1);
+  /* Enlarge badge on card hover */
 }
 
-.dev-badge { background-color: var(--accent); }
-.art-badge { background-color: var(--art-color); }
-.ml-badge { background-color: var(--ml-color); }
+.dev-badge {
+  background-color: var(--accent);
+}
+
+.art-badge {
+  background-color: var(--art-color);
+}
+
+.ml-badge {
+  background-color: var(--ml-color);
+}
 
 .card-content {
   padding: 25px;
+  transform: translateZ(20px);
+  /* Pop out effect */
 }
 
 .card-content h3 {
   margin: 0 0 10px 0;
   font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
+.card-content p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
 }
 
 .btn-link {
@@ -326,38 +373,51 @@ nav a:hover::after {
 /* 6. Neural Stream (Thoughts) */
 .thoughts-section {
   padding: 80px 0;
-  background: linear-gradient(to bottom, transparent, rgba(86, 174, 174, 0.05));
+  background: linear-gradient(to bottom, transparent, rgba(100, 255, 218, 0.05));
 }
 
 .thoughts-feed {
   max-height: 400px;
-  overflow-y: auto; 
-  padding: 0; 
-  border: 1px solid rgba(255,255,255, 0.8);
+  overflow-y: auto;
+  padding: 0;
+  border: var(--glass-border);
+  background: var(--card-bg);
 }
 
-.thoughts-feed::-webkit-scrollbar { width: 6px; }
-.thoughts-feed::-webkit-scrollbar-thumb { background-color: rgba(0,0,0,0.1); border-radius: 4px; }
+.thoughts-feed::-webkit-scrollbar {
+  width: 6px;
+}
+
+.thoughts-feed::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 255, 218, 0.2);
+  border-radius: 4px;
+}
 
 .note-item {
   padding: 25px;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  /* Light grey divider */
   transition: background 0.2s;
 }
 
-.note-item:last-child { border-bottom: none; }
-.note-item:hover { background: rgba(255,255,255,0.5); }
+.note-item:last-child {
+  border-bottom: none;
+}
+
+.note-item:hover {
+  background: rgba(100, 255, 218, 0.05);
+}
 
 .note-header {
   display: flex;
   justify-content: space-between;
   font-size: 0.8rem;
-  color: #888;
+  color: #8892b0;
   margin-bottom: 8px;
 }
 
 .note-tag {
-  color: var(--accent);
+  color: var(--accent-cyan);
   font-weight: 700;
   text-transform: uppercase;
   font-size: 0.7rem;
@@ -366,22 +426,30 @@ nav a:hover::after {
 
 .note-content {
   font-size: 1rem;
-  color: var(--dark);
+  color: var(--text-primary);
   line-height: 1.5;
 }
 
 .decor-line {
   width: 2px;
   height: 100px;
-  background: linear-gradient(to bottom, var(--accent), transparent);
+  background: linear-gradient(to bottom, var(--accent-cyan), transparent);
   margin-top: 20px;
 }
 
 /* 7. Animations */
 @keyframes morph {
-  0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-  100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
 }
 
 .hidden {
@@ -398,33 +466,39 @@ nav a:hover::after {
 /* 8. Mobile Responsiveness */
 @media (max-width: 768px) {
   .split-layout {
-    flex-direction: column-reverse; 
+    flex-direction: column-reverse;
     text-align: center;
   }
-  
-  .hero-text h1 { font-size: 2.5rem; }
-  
-  .social-icons { justify-content: center; }
-  
-  .nav-container { 
+
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .nav-container {
     padding: 15px 20px;
     flex-direction: column;
     gap: 20px;
   }
-  
-  nav ul { 
+
+  nav ul {
     flex-direction: row;
     gap: 20px;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
   }
-  
+
   .logo {
     text-align: center;
   }
-  
-  .page-container { padding-top: 100px; }
+
+  .page-container {
+    padding-top: 100px;
+  }
 }
 
 footer {
@@ -434,72 +508,22 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Floating Objects Background - Neural Network Style */
-.floating-background {
+/* Neural Network Canvas */
+#neural-canvas {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: -1;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.neural-connections {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  filter: blur(0.5px);
-}
-
-.neural-connections line {
-  transition: opacity 0.3s ease;
-}
-
-.floating-object {
-  position: absolute;
-  pointer-events: auto;
-  cursor: pointer;
-  transition: transform 0.1s ease-out;
-  will-change: transform;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, 
-    rgba(86, 174, 174, 0.4), 
-    rgba(45, 106, 79, 0.25));
-  border: 2px solid rgba(86, 174, 174, 0.4);
-  box-shadow: 
-    0 0 20px rgba(86, 174, 174, 0.2),
-    inset 0 0 10px rgba(255, 255, 255, 0.3);
-}
-
-.floating-object::before {
-  content: '';
-  position: absolute;
-  width: 40%;
-  height: 40%;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  top: 15%;
-  left: 15%;
-  filter: blur(8px);
-}
-
-.floating-object:hover {
-  transform: scale(1.15);
-  box-shadow: 
-    0 0 30px rgba(86, 174, 174, 0.4),
-    inset 0 0 15px rgba(255, 255, 255, 0.3);
-  border-color: rgba(86, 174, 174, 0.6);
+  opacity: 0.6;
+  /* Slight fade so it doesn't distract */
 }
 
 /* --- Subpage Specific Styles --- */
 
 .page-container {
-  padding-top: 100px; 
+  padding-top: 100px;
   padding-bottom: 60px;
   min-height: 80vh;
 }
@@ -519,6 +543,7 @@ nav a.active {
   color: var(--accent);
   font-weight: 700;
 }
+
 nav a.active::after {
   width: 100%;
   background-color: var(--accent);
@@ -538,8 +563,8 @@ nav a.active::after {
 }
 
 .resume-viewer {
-  height: 75vh; 
-  padding: 0; 
+  height: 75vh;
+  padding: 0;
   overflow: hidden;
 }
 
@@ -593,11 +618,57 @@ nav a.active::after {
 
 @media (max-width: 768px) {
   .resume-header {
-      flex-direction: column;
-      gap: 20px;
-      text-align: center;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
   }
+
   .resume-viewer {
-      height: 50vh;
+    height: 50vh;
+  }
+}
+
+/* Cursor Styles */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 50%;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-cyan);
+}
+
+.cursor-ring {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--accent-cyan);
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+.cursor-ring.active {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(100, 255, 218, 0.1);
+  border-color: transparent;
+}
+
+/* Hide default cursor only on desktop to avoid issues on touch */
+@media (min-width: 992px) {
+  body {
+    cursor: none;
+  }
+
+  a,
+  button,
+  .project-card {
+    cursor: none;
   }
 }
