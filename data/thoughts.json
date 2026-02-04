@@ -13,5 +13,10 @@
     "date": "2026-01-02",
     "tag": "AI",
     "content": "Open world games like Minecraft are the future of gaming and where AI will be powerful. My idea is desisn a meta-world where interactive AI agents are over the world map, and players can find them in the real world through devices like AR."
+  },
+  {
+    "date": "2026-02-04",
+    "tag": "ML/AI",
+    "content": "As more powerful ML models are developed, I wonder the needs of sepcific models and whether they're all analogous to human brain. If so, would it be dumb to imitate the human brain? The definition of AGI seems not promising if we attempt to copy human brains given the brain is powerful yet not useful for many tasks. I heard the topic of Generative Coding which is a generative model that can dynamically udpates its internal states or weights even during inference. This is very different from the current LLMs, and the recurrency seems to be the key. My hypothesis is that if we keep modeling brain function as the objective function of AI, we may not gurantee a performance boost interms of tasks. The tradeoff is there, but I think it is worth exploring."
   }
 ]
