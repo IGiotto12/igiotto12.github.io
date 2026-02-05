@@ -154,7 +154,8 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 feedContainer.innerHTML = ''; // Clear loading text
 
-                data.forEach(note => {
+                // Reverse to show newest thoughts first
+                data.reverse().forEach(note => {
                     const noteDiv = document.createElement('div');
                     noteDiv.classList.add('note-item');
 
