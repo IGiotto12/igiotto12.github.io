@@ -15,8 +15,13 @@
     "content": "Open world games like Minecraft are the future of gaming and where AI will be powerful. My idea is desisn a meta-world where interactive AI agents are over the world map, and players can find them in the real world through devices like AR."
   },
   {
-    "date": "2026-02-04",
+    "date": "2026-02-03",
     "tag": "ML/AI",
     "content": "As more powerful ML models are developed, I wonder the needs of sepcific models and whether they're all analogous to human brain. If so, would it be dumb to imitate the human brain? The definition of AGI seems not promising if we attempt to copy human brains given the brain is powerful yet not useful for many tasks. I heard the topic of Generative Coding which is a generative model that can dynamically udpates its internal states or weights even during inference. This is very different from the current LLMs, and the recurrency seems to be the key. My hypothesis is that if we keep modeling brain function as the objective function of AI, we may not gurantee a performance boost interms of tasks. The tradeoff is there, but I think it is worth exploring."
+  },
+  {
+    "date": "2026-02-04",
+    "tag": "AI/Philosophy",
+    "content": "I've read the paper Leveraging insights from neuroscience to build adaptive artificial intelligence, which calls back to the topic of predictive coding. A need for adaptive intelligence just like animals with homeostasis and so many other active, dynamic processes in the brain. Another philosopical question is the existence of consciousness and the definition of emptiness/void. In mathetmatical view, the kernel of a mapping shows the set of elements that are mapped to zero in the other spaces. I recalled that when I attempted to imagine the empty space/void as if there's nothing in the world, but it ends up that all blanks/white space are filled in my imagination, hence the void is not void. Suppose the observable world is a group/field, then the void is the kernel of the mapping from the observable world to the void. It turns out that the kernel is almost impossible to find, nor the unit identity of the world."
   }
 ]
