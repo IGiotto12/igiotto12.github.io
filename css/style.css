@@ -382,6 +382,10 @@ nav a:hover::after {
   padding: 0;
   border: var(--glass-border);
   background: var(--card-bg);
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  /* Keeps items at the "top" (visual top) when few items exist */
 }
 
 .thoughts-feed::-webkit-scrollbar {
@@ -400,8 +404,14 @@ nav a:hover::after {
   transition: background 0.2s;
 }
 
-.note-item:last-child {
+/* In column-reverse, the first child is visually at the bottom */
+.note-item:first-child {
   border-bottom: none;
+}
+
+.note-item:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  /* Restore border for visually top item */
 }
 
 .note-item:hover {

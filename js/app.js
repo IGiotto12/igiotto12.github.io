@@ -154,8 +154,8 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 feedContainer.innerHTML = ''; // Clear loading text
 
-                // Reverse to show newest thoughts first
-                data.reverse().forEach(note => {
+                // CSS handles reverse order now (flex-direction: column-reverse)
+                data.forEach(note => {
                     const noteDiv = document.createElement('div');
                     noteDiv.classList.add('note-item');
 
