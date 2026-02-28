@@ -5,10 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research | Jiaqi Wu</title>
+    <meta name="description"
+        content="Research publications and papers by Jiaqi Wu — adaptive machine learning, multi-agent systems, and cognitive neuroscience.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -20,53 +23,72 @@
     <header id="navbar">
         <div class="nav-container">
             <div class="logo"><a href="../index.html">JW.</a></div>
-            <nav>
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../index.html#projects">Projects</a></li>
-                    <li><a href="resume.html">Resume</a></li>
-                    <li><a href="research.html" class="active">Research</a></li>
-                </ul>
-            </nav>
+            <div class="nav-right">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../index.html#projects">Projects</a></li>
+                        <li><a href="resume.html">Resume</a></li>
+                        <li><a href="research.html" class="active">Research</a></li>
+                    </ul>
+                </nav>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
     </header>
 
     <main class="page-container">
         <div class="container">
 
-            <div class="glass-panel interest-section hidden">
+            <div class="glass-panel interest-section reveal">
                 <h2>Research Interests</h2>
                 <p>
-                    My research interests lie in the area of <strong>adaptive machine learning models</strong>, which
-                    connects cognitive neuroscience and machine learning, towards the active development and adaptive
-                    learning of AI models. For real-world applications, I am working on MAS (Multi-Agent System)
-                    simulation and planning, hence the automation of the planning - analysis - execution - feedback
-                    loop.
+                    My research focuses on <strong>adaptive machine learning models</strong> that bridge cognitive
+                    neuroscience and machine learning. I am particularly interested in multi-agent system (MAS)
+                    simulation
+                    and planning, automating the planning–analysis–execution–feedback loop for real-world applications.
                 </p>
             </div>
 
-            <div class="section-header hidden">
+            <div class="section-header reveal reveal-delay-1">
                 <h2>Publications & Papers</h2>
                 <div class="underline"></div>
             </div>
 
             <div class="grid-layout">
 
-                <div class="project-card hidden">
+                <div class="project-card reveal reveal-delay-2">
                     <div class="card-image">
-                        <img src="https://blog.bayeslabs.co/assets/img/1rnn.png" alt="Char-RNN">
+                        <img src="https://blog.bayeslabs.co/assets/img/1rnn.png" alt="Char-RNN Architecture">
                     </div>
                     <div class="card-content">
                         <h3>Structured Syntax Learning</h3>
                         <p class="sub-text">Char-RNNs on LaTeX Algebraic Geometry</p>
-                        <p class="meta"><strong>Author:</strong> Jiaqi Wu | June 2025</p>
+                        <p class="meta"><strong>Author:</strong> Jiaqi Wu &middot; June 2025</p>
                         <a href="../src/Char-rnn.pdf" target="_blank" class="btn-link">Read Paper &rarr;</a>
                     </div>
                 </div>
 
-                <div class="project-card hidden">
+                <div class="project-card reveal reveal-delay-3">
                     <div class="card-image">
-                        <img src="../src/cover.png" alt="Rating Model">
+                        <img src="../src/cover.png" alt="Rating Prediction Model">
                     </div>
                     <div class="card-content">
                         <h3>Google Local Review Model</h3>
@@ -77,12 +99,25 @@
                     </div>
                 </div>
 
+                <div class="project-card reveal reveal-delay-4">
+                    <div class="card-image"
+                        style="background: var(--bg-elevated); display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 2.5rem; color: var(--text-muted);">∫ ∂ ∇</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Nonlinear Classification</h3>
+                        <p class="sub-text">Nonlinear Methods for Pattern Classification</p>
+                        <p class="meta"><strong>Author:</strong> Jiaqi Wu</p>
+                        <a href="../src/nonlinear_class.pdf" target="_blank" class="btn-link">Read Paper &rarr;</a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </main>
 
     <footer>
-        <p>© 2025 Jiaqi's Website | igiotto12@gmail.com</p>
+        <p>&copy; 2026 Jiaqi Wu &middot; igiotto12@gmail.com</p>
     </footer>
 
     <script src="../js/app.js"></script>

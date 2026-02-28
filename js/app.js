@@ -1,7 +1,37 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    // --- 0. Custom Cursor (Simple Follower) ---
-    // Create cursor elements
+    // ============================================================
+    // 1. THEME TOGGLE — Light/Dark with persistence
+    // ============================================================
+    const themeToggle = document.getElementById('theme-toggle');
+    const savedTheme = localStorage.getItem('theme') || 'light';
+
+    if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+
+            if (next === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+            }
+            localStorage.setItem('theme', next);
+
+            // Update canvas colors
+            if (typeof updateCanvasColors === 'function') {
+                updateCanvasColors();
+            }
+        });
+    }
+
+    // ============================================================
+    // 2. CUSTOM CURSOR — Smooth follow
+    // ============================================================
     const cursorDot = document.createElement('div');
     const cursorRing = document.createElement('div');
     cursorDot.className = 'cursor-dot';
@@ -9,167 +39,155 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.appendChild(cursorDot);
     document.body.appendChild(cursorRing);
 
-    document.addEventListener('mousemove', (e) => {
-        cursorDot.style.left = e.clientX + 'px';
-        cursorDot.style.top = e.clientY + 'px';
+    let mouseX = 0, mouseY = 0;
+    let dotX = 0, dotY = 0;
+    let ringX = 0, ringY = 0;
 
-        // Slight delay for ring
-        setTimeout(() => {
-            cursorRing.style.left = e.clientX + 'px';
-            cursorRing.style.top = e.clientY + 'px';
-        }, 50);
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
     });
 
-    // Add hover states
-    const hoverables = document.querySelectorAll('a, button, .project-card');
-    hoverables.forEach(el => {
+    function animateCursor() {
+        dotX += (mouseX - dotX) * 0.2;
+        dotY += (mouseY - dotY) * 0.2;
+        ringX += (mouseX - ringX) * 0.1;
+        ringY += (mouseY - ringY) * 0.1;
+
+        cursorDot.style.left = dotX + 'px';
+        cursorDot.style.top = dotY + 'px';
+        cursorRing.style.left = ringX + 'px';
+        cursorRing.style.top = ringY + 'px';
+
+        requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    // Hover states
+    const interactables = document.querySelectorAll('a, button, .project-card, .note-item, .theme-toggle');
+    interactables.forEach(el => {
         el.addEventListener('mouseenter', () => cursorRing.classList.add('active'));
         el.addEventListener('mouseleave', () => cursorRing.classList.remove('active'));
     });
 
-    // --- 0.1 Project Card 3D Tilt ---
+    // ============================================================
+    // 3. SCROLL REVEAL — IntersectionObserver with stagger
+    // ============================================================
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+        revealObserver.observe(el);
+    });
+
+    // ============================================================
+    // 4. 3D TILT on Project Cards
+    // ============================================================
     const cards = document.querySelectorAll('.project-card');
 
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left; // x position within the element.
-            const y = e.clientY - rect.top;  // y position within the element.
-
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
 
-            const rotateX = ((y - centerY) / centerY) * -10; // Max rotation deg
-            const rotateY = ((x - centerX) / centerX) * 10;
+            const rotateX = ((y - centerY) / centerY) * -6;
+            const rotateY = ((x - centerX) / centerX) * 6;
 
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+            card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.01)`;
         });
 
         card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+            card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) scale(1)';
         });
     });
 
-    // --- 1. Your Specific Typewriter Logic ---
-    const textElement = document.getElementById('typewriter-text');
-    // Only run this if the element exists on the current page (prevents errors on Resume/Research pages)
-    if (textElement) {
-        const text = "I am a 3rd-year undergrad double major in Math-CS and Cog Sci (Neural Computation & ML) at UC San Diego. I specialize in deep learning with PyTorch, developing transformer-based models. I have hands-on experience building AI agents with LangChain and multi-agent frameworks, and implementing RAG/GraphRAG systems. My cloud computing expertise includes deploying ML models on AWS (EC2, SageMaker, Lambda). I am actively looking for internship positions about Software Dev Engineer, LLM/ML Engineer, Data Analyst, and more.";
-        let index = 0;
-
-        function type() {
-            if (index < text.length) {
-                textElement.innerHTML += text.charAt(index);
-                index++;
-                setTimeout(type, 15);
-            }
-        }
-        type();
-    }
-
-    // --- 2. Scroll Animations (Intersection Observer) ---
-    const observerOptions = { threshold: 0.1 };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-            }
-        });
-    }, observerOptions);
-
-    const hiddenElements = document.querySelectorAll('.hidden');
-    hiddenElements.forEach((el) => observer.observe(el));
-
-    // --- 3. Header & Scroll Spy Logic ---
+    // ============================================================
+    // 5. HEADER — Hide on scroll down, show on scroll up
+    // ============================================================
     let lastScrollTop = 0;
     const header = document.getElementById('navbar');
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-container nav ul li a');
 
     if (header) {
         window.addEventListener('scroll', () => {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-            // Header Hide/Show
-            if (scrollTop > lastScrollTop) {
-                header.style.transform = "translateY(-100%)";
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                header.style.transform = 'translateY(-100%)';
             } else {
-                header.style.transform = "translateY(0)";
+                header.style.transform = 'translateY(0)';
             }
             lastScrollTop = scrollTop;
+        }, { passive: true });
+    }
 
-            // Scroll Spy
+    // ============================================================
+    // 6. SCROLL SPY — Active nav link
+    // ============================================================
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav ul li a[href^="#"]');
+
+    if (navLinks.length > 0) {
+        window.addEventListener('scroll', () => {
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
-                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                if (window.pageYOffset >= sectionTop - sectionHeight / 3) {
                     current = section.getAttribute('id');
                 }
             });
 
-            navLinks.forEach(li => {
-                li.classList.remove('active');
-                if (li.getAttribute('href').includes(current)) {
-                    li.classList.add('active');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
                 }
             });
-        });
+        }, { passive: true });
     }
 
-    // ... (Keep your existing Typewriter & Header logic here) ...
-
-    // --- 1. Project Filtering Logic ---
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
-
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active class from all
-            filterBtns.forEach(b => b.classList.remove('active'));
-            // Add to clicked
-            btn.classList.add('active');
-
-            const filterValue = btn.getAttribute('data-filter');
-
-            projectCards.forEach(card => {
-                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                    card.classList.remove('hide');
-                    card.classList.add('show'); // Re-trigger fade in if needed
-                } else {
-                    card.classList.add('hide');
-                    card.classList.remove('show');
-                }
-            });
-        });
-    });
-
-    // --- 2. Neural Stream Fetcher (JSON to HTML) ---
+    // ============================================================
+    // 7. THOUGHTS FEED — Load from JSON
+    // ============================================================
     const feedContainer = document.getElementById('feed-container');
 
     if (feedContainer) {
         fetch('data/thoughts.json')
             .then(response => response.json())
             .then(data => {
-                feedContainer.innerHTML = ''; // Clear loading text
+                feedContainer.innerHTML = '';
 
-                // CSS handles reverse order now (flex-direction: column-reverse)
-                data.forEach(note => {
+                // Reverse to show newest first
+                const sorted = [...data].reverse();
+
+                sorted.forEach((note, index) => {
                     const noteDiv = document.createElement('div');
-                    noteDiv.classList.add('note-item');
+                    noteDiv.classList.add('note-item', 'reveal');
+                    if (index < 6) {
+                        noteDiv.classList.add(`reveal-delay-${index + 1}`);
+                    }
 
                     noteDiv.innerHTML = `
-                        <div class="note-header">
-                            <span class="note-tag">#${note.tag}</span>
-                            <span class="note-date">${note.date}</span>
-                        </div>
-                        <div class="note-content">
-                            ${note.content}
-                        </div>
-                    `;
+            <div class="note-header">
+              <span class="note-tag">#${note.tag}</span>
+              <span class="note-date">${note.date}</span>
+            </div>
+            <div class="note-content">${note.content}</div>
+          `;
 
                     feedContainer.appendChild(noteDiv);
+                    revealObserver.observe(noteDiv);
                 });
             })
             .catch(error => {
@@ -178,69 +196,75 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 
-    // --- 3. Neural Network Floating Objects ---
-    // --- 3. Neural Network Canvas Animation ---
+    // ============================================================
+    // 8. NEURAL NETWORK CANVAS — Theme-aware
+    // ============================================================
     const canvas = document.getElementById('neural-canvas');
     if (canvas) {
         const ctx = canvas.getContext('2d');
         let width, height;
         let particles = [];
 
-        // Configuration
+        function getCanvasColors() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            return {
+                particles: isDark ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0, 0, 0, 0.15)',
+                lines: isDark ? 'rgba(255, 255, 255, 0.04)' : 'rgba(0, 0, 0, 0.03)'
+            };
+        }
+
+        let colors = getCanvasColors();
+
+        // Expose for theme toggle
+        window.updateCanvasColors = function () {
+            colors = getCanvasColors();
+        };
+
         const config = {
-            particleCount: 80,
-            connectionDistance: 150,
-            mouseDistance: 250,
-            baseSpeed: 0.1,
-            colors: {
-                particles: 'rgba(45, 52, 54, 0.5)', // Dark Grey
-                lines: 'rgba(45, 52, 54, 0.1)'     // Very faint grey lines
-            }
+            particleCount: 60,
+            connectionDistance: 120,
+            mouseDistance: 200,
+            baseSpeed: 0.15
         };
 
         const mouse = { x: null, y: null };
 
-        // Particle Class
         class Particle {
             constructor() {
                 this.x = Math.random() * width;
                 this.y = Math.random() * height;
                 this.vx = (Math.random() - 0.5) * config.baseSpeed;
                 this.vy = (Math.random() - 0.5) * config.baseSpeed;
-                this.size = Math.random() * 2 + 1;
+                this.size = Math.random() * 1.5 + 0.5;
             }
 
             update() {
                 this.x += this.vx;
                 this.y += this.vy;
 
-                // Bounce off edges
                 if (this.x < 0 || this.x > width) this.vx *= -1;
                 if (this.y < 0 || this.y > height) this.vy *= -1;
 
-                // Mouse Interaction
                 if (mouse.x != null) {
                     let dx = mouse.x - this.x;
                     let dy = mouse.y - this.y;
                     let distance = Math.sqrt(dx * dx + dy * dy);
 
                     if (distance < config.mouseDistance) {
-                        const forceDirectionX = dx / distance;
-                        const forceDirectionY = dy / distance;
                         const force = (config.mouseDistance - distance) / config.mouseDistance;
-                        const directionX = forceDirectionX * force * 0.6;
-                        const directionY = forceDirectionY * force * 0.6;
-
-                        this.vx += directionX;
-                        this.vy += directionY;
+                        this.vx += (dx / distance) * force * 0.3;
+                        this.vy += (dy / distance) * force * 0.3;
                     }
                 }
+
+                this.vx *= 0.99;
+                this.vy *= 0.99;
             }
 
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = config.colors.particles;
+                ctx.fillStyle = colors.particles;
                 ctx.fill();
             }
         }
@@ -263,8 +287,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 p.update();
                 p.draw();
 
-                // Draw connections
-                for (let j = i; j < particles.length; j++) {
+                for (let j = i + 1; j < particles.length; j++) {
                     let p2 = particles[j];
                     let dx = p.x - p2.x;
                     let dy = p.y - p2.y;
@@ -272,7 +295,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     if (distance < config.connectionDistance) {
                         ctx.beginPath();
-                        ctx.strokeStyle = config.colors.lines;
+                        ctx.strokeStyle = colors.lines;
                         ctx.lineWidth = 1 - (distance / config.connectionDistance);
                         ctx.moveTo(p.x, p.y);
                         ctx.lineTo(p2.x, p2.y);
@@ -282,7 +305,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-        // Event Listeners
         window.addEventListener('resize', init);
         window.addEventListener('mousemove', (e) => {
             mouse.x = e.x;
@@ -296,5 +318,21 @@ document.addEventListener('DOMContentLoaded', function () {
         init();
         animate();
     }
+
+    // ============================================================
+    // 9. SMOOTH SCROLL for anchor links
+    // ============================================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
 
 });

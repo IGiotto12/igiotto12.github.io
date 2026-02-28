@@ -4,12 +4,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Jiaqi Wu - Math-CS & Cog Sci Student at UCSD">
+  <meta name="description"
+    content="Jiaqi Wu — AI Developer & Researcher building intelligent systems at the intersection of machine learning and cognitive science.">
   <title>Jiaqi Wu | AI Developer & Researcher</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
@@ -17,46 +19,74 @@
 </head>
 
 <body>
-  <!-- Floating Objects Background - Neural Network -->
+  <!-- Background Canvas -->
   <canvas id="neural-canvas"></canvas>
 
+  <!-- Navigation -->
   <header id="navbar">
     <div class="nav-container">
       <div class="logo"><a href="#">JW.</a></div>
-      <nav>
-        <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="pages/resume.html">Resume</a></li>
-          <li><a href="pages/research.html">Research</a></li>
-        </ul>
-      </nav>
+      <div class="nav-right">
+        <nav>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="pages/resume.html">Resume</a></li>
+            <li><a href="pages/research.html">Research</a></li>
+          </ul>
+        </nav>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
     </div>
   </header>
 
   <main>
+    <!-- ===== HERO ===== -->
     <section id="hero" class="hero-section">
       <div class="container split-layout">
-        <div class="hero-text hidden">
-          <span class="greeting">Hello, I'm</span>
-          <h1>Jiaqi Wu <span class="chinese-name">(吴佳麒)</span></h1>
-          <h2 class="role-title">Math-CS Student at UCSD</h2>
-
-          <div class="typewriter-container">
-            <p id="typewriter-text"></p><span class="cursor"></span>
-          </div>
-
-          <div class="social-icons">
-            <a href="https://github.com/IGiotto12" target="_blank" aria-label="GitHub">
+        <div class="hero-text">
+          <span class="hero-label reveal">AI Developer & Researcher</span>
+          <h1 class="reveal reveal-delay-1">Jiaqi Wu <span class="chinese-name">吴佳麒</span></h1>
+          <p class="hero-subtitle reveal reveal-delay-2">
+            Building <span class="accent">intelligent systems</span> at the intersection of
+            deep learning, multi-agent architectures, and cognitive science.
+          </p>
+          <div class="hero-meta reveal reveal-delay-3">
+            <a href="https://github.com/IGiotto12" target="_blank" class="social-link" aria-label="GitHub">
               <svg viewBox="0 0 24 24" fill="currentColor">
                 <path
                   d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
               </svg>
             </a>
+            <a href="#projects" class="hero-cta">
+              View Work
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
           </div>
         </div>
 
-        <div class="hero-image hidden">
+        <div class="hero-image reveal-right reveal-delay-2">
           <div class="image-wrapper">
             <img src="src/selfie.jpg" alt="Jiaqi Wu">
           </div>
@@ -64,64 +94,153 @@
       </div>
     </section>
 
-    <section id="projects" class="projects-section">
+    <!-- ===== SIGNATURE PROJECTS ===== -->
+    <section id="projects" class="projects-section section">
       <div class="container">
-        <div class="section-header hidden">
-          <h2>Selected Works</h2>
-          <div class="underline"></div>
+        <div class="section-header">
+          <span class="section-label reveal">Selected Work</span>
+          <h2 class="section-title reveal reveal-delay-1">Flagship Projects</h2>
+          <p class="section-subtitle reveal reveal-delay-2">Each project represents a deep investment in solving real
+            problems with intelligent systems.</p>
         </div>
 
-        <div class="grid-layout project-grid">
+        <div class="project-grid">
 
-          <div class="project-card hidden" data-category="dev">
+          <!-- CyberNeuro -->
+          <div class="project-card reveal reveal-delay-1" data-category="dev">
             <div class="card-image">
-              <img src="src/OpyTown.png" alt="OpyTown Multi-Agent System">
-              <span class="badge dev-badge">AI/Dev</span>
+              <img src="src/OpyTown.png" alt="CyberNeuro Brain Network Analysis">
+              <span class="badge research-badge">Research</span>
+            </div>
+            <div class="card-content">
+              <h3>CyberNeuro</h3>
+              <p>Brain network analysis — from workflow stacking to intelligent decision-making.</p>
+              <a href="https://acmlab.github.io/brain-network-chart/" target="_blank" class="btn-link">Try Demo
+                &rarr;</a>
+            </div>
+            <div class="card-detail">
+              <h4>CyberNeuro — Intelligent Brain Network Analysis</h4>
+              <p>4-layer intelligent agent adaptive orchestration with full-pipeline quality assurance. Every analysis
+                chain is explainable, reproducible, and traceable. The goal is not to replace researchers, but to
+                maximize their decision efficiency and reliability.</p>
+              <div class="detail-metrics">
+                <div class="detail-metric">
+                  <span class="metric-value">95.8%</span>
+                  <span class="metric-label">Accuracy</span>
+                </div>
+                <div class="detail-metric">
+                  <span class="metric-value">88.7%</span>
+                  <span class="metric-label">Recall</span>
+                </div>
+                <div class="detail-metric">
+                  <span class="metric-value">100%</span>
+                  <span class="metric-label">Precision</span>
+                </div>
+                <div class="detail-metric">
+                  <span class="metric-value">500+</span>
+                  <span class="metric-label">Queries Validated</span>
+                </div>
+              </div>
+              <div class="detail-links">
+                <a href="https://acmlab.github.io/brain-network-chart/" target="_blank"
+                  class="detail-link detail-link--primary">Live Demo</a>
+                <a href="https://www.youtube.com/watch?v=rDU-kkI3ZA4" target="_blank" class="detail-link">Video Demo</a>
+                <a href="https://github.com/acmlab/brain-network-chart/releases/tag/v0" target="_blank"
+                  class="detail-link">GitHub</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lungo+ -->
+          <div class="project-card reveal reveal-delay-2" data-category="dev">
+            <div class="card-image">
+              <img src="src/OpyTown.png" alt="Lungo+ Multi-Agent System">
+              <span class="badge dev-badge">AI / Dev</span>
             </div>
             <div class="card-content">
               <h3>Lungo+</h3>
-              <p>Multi-agent system simulation project.</p>
-              <a href="https://devpost.com/software/lungo" target="_blank" class="btn-link">View Repo
-                &rarr;</a>
+              <p>Multi-agent system simulation — awarded at SanDHack 2026.</p>
+              <a href="https://devpost.com/software/lungo" target="_blank" class="btn-link">View Project &rarr;</a>
+            </div>
+            <div class="card-detail">
+              <h4>Lungo+ — Multi-Agent Simulation</h4>
+              <p>An award-winning multi-agent system simulation submitted at the SanD Hackathon. Built with advanced
+                agent orchestration patterns including publish/subscribe messaging for complex multi-agent coordination.
+              </p>
+              <div class="detail-links">
+                <a href="https://devpost.com/software/lungo" target="_blank"
+                  class="detail-link detail-link--primary">Devpost</a>
+                <a href="https://github.com/IGiotto12/OpyTown" target="_blank" class="detail-link">GitHub</a>
+              </div>
             </div>
           </div>
 
-          <div class="project-card hidden" data-category="dev">
+          <!-- Trai -->
+          <div class="project-card reveal reveal-delay-3" data-category="dev">
             <div class="card-image">
-              <img src="src/trai_logo.png" alt="Trai Project">
-              <span class="badge dev-badge">AI/Dev</span>
+              <img src="src/trai_logo.png" alt="Trai AI Education">
+              <span class="badge dev-badge">AI / Dev</span>
             </div>
             <div class="card-content">
               <h3>Trai</h3>
-              <p>Educational app with AI-Powered Assistant.</p>
+              <p>AI-powered educational assistant with intelligent tutoring.</p>
               <a href="https://traied-igiotto12s-projects.vercel.app/" target="_blank" class="btn-link">View Website
                 &rarr;</a>
             </div>
+            <div class="card-detail">
+              <h4>Trai — AI-Powered Education</h4>
+              <p>A full-stack educational platform featuring AI-driven tutoring, smart scheduling, and personalized
+                learning paths. Built with modern web technologies and deployed on Vercel.</p>
+              <div class="detail-links">
+                <a href="https://traied-igiotto12s-projects.vercel.app/" target="_blank"
+                  class="detail-link detail-link--primary">Live Site</a>
+              </div>
+            </div>
           </div>
 
-          <div class="project-card hidden" data-category="ml">
+          <!-- Robot in a Box -->
+          <div class="project-card reveal reveal-delay-4" data-category="ml">
             <div class="card-image">
-              <img src="src/robot.png" alt="Robot">
+              <img src="src/robot.png" alt="Robot Ray Tracing">
               <span class="badge ml-badge">CG</span>
             </div>
             <div class="card-content">
               <h3>Robot in a Box</h3>
-              <p>Ray Tracing Algorithm implementation in C++.</p>
+              <p>Ray tracing engine implementation in C++.</p>
               <a href="https://github.com/IGiotto12/cse167-project" target="_blank" class="btn-link">View Repo
                 &rarr;</a>
             </div>
+            <div class="card-detail">
+              <h4>Robot in a Box — Ray Tracing</h4>
+              <p>A physically-based ray tracing implementation in C++ featuring reflection, refraction, soft shadows,
+                and global illumination. Built as a computer graphics course project at UCSD.</p>
+              <div class="detail-links">
+                <a href="https://github.com/IGiotto12/cse167-project" target="_blank"
+                  class="detail-link detail-link--primary">GitHub</a>
+              </div>
+            </div>
           </div>
 
-          <div class="project-card hidden" data-category="art">
+          <!-- Fine-t_ne -->
+          <div class="project-card reveal reveal-delay-5" data-category="art">
             <div class="card-image">
-              <img src="src/Fine-t_ne.png" alt="Artwork">
+              <img src="src/Fine-t_ne.png" alt="Fine-t_ne Artwork">
               <span class="badge art-badge">Art</span>
             </div>
             <div class="card-content">
               <h3>Fine-t_ne</h3>
-              <p>MECHANICA X MORTALIS</p>
+              <p>MECHANICA X MORTALIS — generative art exploration.</p>
               <a href="https://drive.google.com/file/d/1qU5fKgSc5LvM1Xhv1EO9SKUvrKhUaF75/view?usp=sharing"
-                class="btn-link">Watch Demo &rarr;</a>
+                target="_blank" class="btn-link">Watch Demo &rarr;</a>
+            </div>
+            <div class="card-detail">
+              <h4>Fine-t_ne — MECHANICA X MORTALIS</h4>
+              <p>A creative exploration at the intersection of generative AI and artistic expression. Blending
+                mechanical precision with organic form to create a unique visual narrative.</p>
+              <div class="detail-links">
+                <a href="https://drive.google.com/file/d/1qU5fKgSc5LvM1Xhv1EO9SKUvrKhUaF75/view?usp=sharing"
+                  target="_blank" class="detail-link detail-link--primary">Watch Demo</a>
+              </div>
             </div>
           </div>
 
@@ -129,23 +248,53 @@
       </div>
     </section>
 
-    <section id="thoughts" class="thoughts-section">
-      <div class="container split-layout">
-        <div class="thoughts-intro hidden">
-          <p>A collection of raw thoughts, hypotheses, and quick notes on AI, Mathematics, and Cognitive Science.</p>
-          <div class="decor-line"></div>
+    <!-- ===== THOUGHTS ===== -->
+    <section id="thoughts" class="thoughts-section section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label reveal">Neural Stream</span>
+          <h2 class="section-title reveal reveal-delay-1">Thoughts & Hypotheses</h2>
+          <p class="section-subtitle reveal reveal-delay-2">Raw ideas on AI, mathematics, and cognitive science —
+            unfiltered.</p>
         </div>
 
-        <div class="thoughts-feed glass-panel hidden" id="feed-container">
-          <div class="loading">Initializing Neural Link...</div>
+        <div class="thoughts-layout">
+          <div class="thoughts-intro reveal-left">
+            <p>A collection of evolving thoughts, hypotheses, and quick notes at the frontier of intelligence research.
+            </p>
+            <div class="decor-line"></div>
+          </div>
+
+          <div class="thoughts-feed" id="feed-container">
+            <div class="loading">Initializing Neural Link...</div>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- ===== CONTACT — Subtle ===== -->
+    <section class="contact-section section">
+      <div class="container">
+        <div class="contact-inner reveal">
+          <div class="contact-text">
+            <h2>Get in Touch</h2>
+            <p>Open to research collaborations, internships, and ambitious projects.</p>
+          </div>
+          <a href="mailto:igiotto12@gmail.com" class="contact-link">
+            igiotto12@gmail.com
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <p>© 2025 Jiaqi Wu | Made with 🧠 in San Diego</p>
+    <p>&copy; 2026 Jiaqi Wu &middot; Built with precision in San Diego</p>
   </footer>
 
   <script src="js/app.js"></script>
