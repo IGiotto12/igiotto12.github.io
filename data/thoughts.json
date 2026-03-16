@@ -23,5 +23,10 @@
     "date": "2026-02-04",
     "tag": "AI/Philosophy",
     "content": "I've read the paper Leveraging insights from neuroscience to build adaptive artificial intelligence, which calls back to the topic of predictive coding. A need for adaptive intelligence just like animals with homeostasis and so many other active, dynamic processes in the brain. Another philosopical question is the existence of consciousness and the definition of emptiness/void. In mathetmatical view, the kernel of a mapping shows the set of elements that are mapped to zero in the other spaces. I recalled that when I attempted to imagine the empty space/void as if there's nothing in the world, but it ends up that all blanks/white space are filled in my imagination, hence the void is not void. Suppose the observable world is a group/field, then the void is the kernel of the mapping from the observable world to the void. It turns out that the kernel is almost impossible to find, nor the unit identity of the world."
+  },
+  {
+    "date": "2026-03-15",
+    "tag": "ML",
+    "content": "Just published a new piece on the arc of ML model development — from discriminative recognition models to generative models, and now toward world models that internally simulate environments. The progression mirrors how biological cognition works: perceive, imagine, predict. I think world models are where the most interesting open problems live. <a href=\"https://medium.com/@jiw188/ml-models-from-recognition-to-generation-to-world-models-3909780c32eb\" target=\"_blank\" style=\"color: var(--accent); font-weight: 600;\">Read on Medium →</a>"
   }
 ]
