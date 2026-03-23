@@ -277,6 +277,12 @@ nav a.active::after {
   gap: 24px;
 }
 
+.hero-socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .hero-meta .social-link {
   width: 44px;
   height: 44px;
