@@ -919,6 +919,24 @@ footer {
   margin: 0;
 }
 
+.resume-direct-link {
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+  margin: -12px 0 24px 0;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.resume-direct-link a {
+  text-decoration: none;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.resume-direct-link a:hover {
+  text-decoration: underline;
+}
+
 .resume-viewer {
   height: 75vh;
   padding: 0;
