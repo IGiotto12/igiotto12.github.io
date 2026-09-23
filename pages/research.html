@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research | Jiaqi Wu</title>
     <meta name="description"
-        content="Research publications and papers by Jiaqi Wu — brain-inspired ML, latent dynamics, spatiotemporal representation learning, and neural signal modeling.">
+        content="Jiaqi Wu’s research interests in adaptive intelligence: integrating understanding, generation, and continuous adaptation through interaction.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,115 +15,128 @@
 
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/research.css">
     <link rel="icon" href="../icon/favicon.ico" type="image/x-icon">
 </head>
 
-<body>
+<body class="research-page">
 
     <header id="navbar">
         <div class="nav-container">
             <div class="logo"><a href="../index.html">JW.</a></div>
             <div class="nav-right">
-                <nav>
+                <nav aria-label="Main navigation">
                     <ul>
                         <li><a href="../index.html">Home</a></li>
                         <li><a href="../index.html#projects">Projects</a></li>
                         <li><a href="resume.html">Resume</a></li>
-                        <li><a href="research.html" class="active">Research</a></li>
+                        <li><a href="research.html" class="active" aria-current="page">Research</a></li>
+                        <li><a href="misc.html">Misc</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
 
-    <main class="page-container">
-        <div class="container">
-
-            <div class="glass-panel interest-section reveal">
-                <h2>Research Interests</h2>
-                <p>
-                    My research is centered on <strong>brain-inspired machine learning</strong>, with a focus on latent
-                    dynamical modeling, spatiotemporal representation learning, and manifold learning in latent space.
-                    I am motivated by how intelligent systems can learn structured internal representations of complex
-                    environments—capturing temporal evolution, spatial dependencies, and geometric structure. My current work targets <strong>structured latent dynamics for
-                        neural
-                        signals</strong> (BOLD signals and functional connectivity), exploring constrained Koopman
-                    operators
-                    and geometric structure for interpretable, stable representations.  I aim to leverage machine learning models to learn latent-space representations that capture both neural dynamics and underlying manifold structure, developing frameworks that bridge neural data analysis with questions of representation, adaptation, and brain-inspired intelligence.
-                </p>
-            </div>
-
-            <div class="section-header reveal reveal-delay-1">
-                <h2>Publications & Papers</h2>
-                <div class="underline"></div>
-            </div>
-
-            <div class="grid-layout">
-
-                <div class="project-card reveal reveal-delay-2">
-                    <div class="card-image">
-                        <img src="../src/slotphys_preview.png" alt="SlotPhys P2P Pipeline">
-                    </div>
-                    <div class="card-content">
-                        <h3>SlotPhys</h3>
-                        <p class="sub-text">Object-Centric Physical Reasoning via DINOv2 Slot Attention</p>
-                        <p class="meta"><strong>Author:</strong> Jiaqi Wu</p>
-                        <a href="https://github.com/IGiotto12/SlotPhys" target="_blank" class="btn-link">View Project &rarr;</a>
-                    </div>
-                </div>
-
-                <div class="project-card reveal reveal-delay-3">
-                    <div class="card-image">
-                        <img src="../src/char_rnn_preview.png" alt="Char-RNN Architecture">
-                    </div>
-                    <div class="card-content">
-                        <h3>Structured Syntax Learning</h3>
-                        <p class="sub-text">Char-RNNs on LaTeX Algebraic Geometry</p>
-                        <p class="meta"><strong>Author:</strong> Jiaqi Wu &middot; June 2025</p>
-                        <a href="../src/Char-rnn.pdf" target="_blank" class="btn-link">Read Paper &rarr;</a>
-                    </div>
-                </div>
-
-                <div class="project-card reveal reveal-delay-4">
-                    <div class="card-image">
-                        <img src="../src/cover.png" alt="Rating Prediction Model">
-                    </div>
-                    <div class="card-content">
-                        <h3>Google Local Review Model</h3>
-                        <p class="sub-text">Rating Prediction on Large Datasets</p>
-                        <p class="meta"><strong>Co-Authors:</strong> Y. Zhang, J. Wang, R. Wang</p>
-                        <a href="../src/Rating Prediction Model.pdf" target="_blank" class="btn-link">Read Paper
-                            &rarr;</a>
-                    </div>
-                </div>
-
-                <div class="project-card reveal reveal-delay-5">
-                    <div class="card-image">
-                        <img src="../src/nonlinear_class_preview.png" alt="Nonlinear Classification">
-                    </div>
-                    <div class="card-content">
-                        <h3>Nonlinear Classification</h3>
-                        <p class="sub-text">Nonlinear Methods for Pattern Classification</p>
-                        <p class="meta"><strong>Author:</strong> Jiaqi Wu</p>
-                        <a href="../src/nonlinear_class.pdf" target="_blank" class="btn-link">Read Paper &rarr;</a>
-                    </div>
-                </div>
-
-                <div class="project-card reveal reveal-delay-6">
-                    <div class="card-image">
-                        <img src="../src/deeper learning.webp" alt="Deeper Learning vs Deep Learning">
-                    </div>
-                    <div class="card-content">
-                        <h3>Deeper Learning vs. Deep Learning</h3>
-                        <p class="sub-text">How AI Disrupts Your Study Habits</p>
-                        <p class="meta"><strong>Publication:</strong> Cognitive Neuroeconomics &middot; Medium</p>
-                        <a href="https://medium.com/cognitive-neuroeconomics/deeper-learning-is-being-replaced-by-deep-learning-how-ai-disrupts-your-study-habits-d13cacc947a6"
-                            target="_blank" class="btn-link">Read Article &rarr;</a>
-                    </div>
-                </div>
-
-            </div>
+    <main class="research-main">
+        <div class="research-intro">
+            <h1>Research</h1>
+            <p>I want to build <strong>adaptive intelligence</strong>: systems that bring understanding and generation
+                together, and adapt in real time through continuous interaction.</p>
+            <p>My work explores parts of this question through brain dynamics, controllable image editing,
+                and agents that use structured knowledge.</p>
         </div>
+
+        <section class="research-section" aria-labelledby="selected-research-title">
+            <h2 id="selected-research-title">Selected research</h2>
+            <div class="work-list">
+                <article class="work-row" aria-labelledby="brainmech-title">
+                    <a href="../output/pdf/brainmech-public.pdf#page=2" target="_blank" rel="noopener noreferrer" aria-label="View the BrainMech manuscript">
+                        <img class="work-preview" src="../src/brainmech-fig1.png" alt="BrainMech overview: modeling brain dynamics across the lifespan" width="180" height="118">
+                    </a>
+                    <div class="work-copy">
+                        <h3 id="brainmech-title"><a href="../output/pdf/brainmech-public.pdf" target="_blank" rel="noopener noreferrer">BrainMech — Brain Dynamics Across the Lifespan</a></h3>
+                        <p class="research-authors"><strong>Jiaqi Wu</strong>, Shuheng Cao, Tingting Dan, Ziquan Wei, Zhixuan Zhou, Guorong Wu</p>
+                        <p class="work-meta">Manuscript under review</p>
+                        <p class="work-description">A Koopman-structured fMRI foundation model for learning and analyzing latent brain dynamics.</p>
+                        <p class="research-contribution">My work: model pretraining, distributed training, and downstream transfer evaluation.</p>
+                        <div class="work-links">
+                            <a href="../output/pdf/brainmech-public.pdf" target="_blank" rel="noopener noreferrer">Manuscript</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="work-row" aria-labelledby="image-edit-research-title">
+                    <img class="work-preview" src="../src/image-edit-preview.png" alt="Illustrative image-editing preview with SFT and RL (GRPO); not experimental output" width="180" height="118" loading="lazy">
+                    <div class="work-copy">
+                        <h3 id="image-edit-research-title">Image Editing with Qwen-Image-Edit</h3>
+                        <p class="work-meta">Research in progress · UC San Diego</p>
+                        <p class="work-description">Improving instruction following and content preservation in image editing.</p>
+                        <p class="research-contribution">I lead <strong>SFT</strong> and <strong>RL (GRPO)</strong> post-training, with distributed training and evaluation pipelines.</p>
+                    </div>
+                </article>
+
+                <article class="work-row" aria-labelledby="knowplan-title">
+                    <a href="https://arxiv.org/abs/2608.06530" target="_blank" rel="noopener noreferrer" aria-label="Read the KnowPlan preprint">
+                        <img class="work-preview" src="../src/knowplan-overview.png" alt="KnowPlan: curriculum extraction followed by personalized degree planning" width="180" height="118" loading="lazy">
+                    </a>
+                    <div class="work-copy">
+                        <h3 id="knowplan-title"><a href="https://arxiv.org/abs/2608.06530" target="_blank" rel="noopener noreferrer">KnowPlan — Knowledge-Driven Degree Planning</a></h3>
+                        <p class="work-meta">arXiv preprint · 2026</p>
+                        <p class="work-description">Separating curriculum extraction from personalized, constraint-aware degree planning.</p>
+                        <p class="research-contribution">My work: agent coordination, knowledge graph design, and data collection and curation.</p>
+                        <div class="work-links">
+                            <a href="https://arxiv.org/abs/2608.06530" target="_blank" rel="noopener noreferrer">Paper</a>
+                            <a href="https://traied-igiotto12s-projects.vercel.app/" target="_blank" rel="noopener noreferrer">Trai project</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="work-row" aria-labelledby="cyberneuro-research-title">
+                    <img class="work-preview" src="../src/cyberneuro.jpg" alt="CyberNeuro brain-network analysis interface" width="180" height="118" loading="lazy">
+                    <div class="work-copy">
+                        <h3 id="cyberneuro-research-title"><a href="https://acmlab.github.io/brain-network-chart/" target="_blank" rel="noopener noreferrer">CyberNeuro</a></h3>
+                        <p class="work-meta">Research project · Agent systems</p>
+                        <p class="work-description">AI agents for brain-network analysis, evaluated on 500+ queries.</p>
+                        <p class="research-contribution">My work: planning agent design and agent harness development.</p>
+                        <div class="work-links">
+                            <a href="https://acmlab.github.io/brain-network-chart/" target="_blank" rel="noopener noreferrer">Demo</a>
+                            <a href="https://github.com/acmlab/brain-network-chart/releases/tag/v0" target="_blank" rel="noopener noreferrer">Code</a>
+                            <a href="https://www.youtube.com/watch?v=rDU-kkI3ZA4" target="_blank" rel="noopener noreferrer">Video</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="research-section earlier-research" aria-labelledby="earlier-research-title">
+            <h2 id="earlier-research-title">Earlier projects &amp; reports</h2>
+            <div class="report-list">
+                <article class="work-copy" aria-labelledby="slotphys-title">
+                    <h3 id="slotphys-title">SlotPhys</h3>
+                    <p class="work-description">Object-centric physical reasoning with DINOv2 and slot attention.</p>
+                    <div class="work-links">
+                        <a href="https://github.com/IGiotto12/SlotPhys" target="_blank" rel="noopener noreferrer">Code</a>
+                        <a href="../src/SlotPhys.pdf" target="_blank" rel="noopener noreferrer">Report</a>
+                    </div>
+                </article>
+                <article class="work-copy" aria-labelledby="syntax-title">
+                    <h3 id="syntax-title">Structured Syntax Learning</h3>
+                    <p class="work-description">Character-level RNNs on LaTeX algebraic geometry · June 2025.</p>
+                    <div class="work-links"><a href="../src/Char-rnn.pdf" target="_blank" rel="noopener noreferrer">Report</a></div>
+                </article>
+                <article class="work-copy" aria-labelledby="ratings-title">
+                    <h3 id="ratings-title">Google Local Review Model</h3>
+                    <p class="work-description">Rating prediction on large datasets, with Y. Zhang, J. Wang, and R. Wang.</p>
+                    <div class="work-links"><a href="../src/Rating%20Prediction%20Model.pdf" target="_blank" rel="noopener noreferrer">Report</a></div>
+                </article>
+                <article class="work-copy" aria-labelledby="classification-title">
+                    <h3 id="classification-title">Nonlinear Classification</h3>
+                    <p class="work-description">Exploring nonlinear methods for pattern classification.</p>
+                    <div class="work-links"><a href="../src/nonlinear_class.pdf" target="_blank" rel="noopener noreferrer">Report</a></div>
+                </article>
+            </div>
+        </section>
     </main>
 
     <footer>

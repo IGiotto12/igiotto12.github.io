@@ -1,0 +1,26 @@
+/* Research follows the compact publication-list layout of the homepage. */
+.research-main { max-width: 1080px; margin: 0 auto; padding: 112px 36px 48px; }
+.research-intro { max-width: 780px; margin-bottom: 34px; }
+.research-intro h1 { font-size: 2rem; font-weight: 650; line-height: 1.2; letter-spacing: -.04em; margin-bottom: 18px; }
+.research-intro p { font-size: .95rem; line-height: 1.7; margin-bottom: 10px; color: var(--text-secondary); }
+.research-intro p:first-of-type { color: var(--text-primary); }
+.research-section h2 { font-size: 1.2rem; font-weight: 600; letter-spacing: -.02em; margin-bottom: 24px; }
+.research-section .work-list { gap: 30px; }
+.research-authors { font-size: .8rem; line-height: 1.6; color: var(--text-secondary); margin: 0 0 3px; }
+.research-authors strong { font-weight: 600; color: var(--text-primary); }
+.research-contribution { font-size: .825rem; line-height: 1.6; color: var(--text-secondary); margin-top: 5px; }
+.research-contribution strong { font-weight: 600; color: var(--text-primary); }
+.earlier-research { border-top: 1px solid var(--border-light); margin-top: 38px; padding-top: 28px; }
+.report-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 36px; }
+.report-list .work-copy h3 { font-size: .925rem; }
+.report-list .work-description { font-size: .825rem; color: var(--text-secondary); }
+.report-list a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.research-page a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+.research-page footer { padding: 24px; }
+@media (max-width: 680px) {
+  .research-main { padding: 106px 22px 36px; }
+  .research-intro h1 { font-size: 1.75rem; }
+  .research-intro p { font-size: .9rem; }
+  .research-section .work-list { gap: 28px; }
+  .report-list { grid-template-columns: 1fr; gap: 22px; }
+}

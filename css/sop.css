@@ -1,0 +1,21 @@
+.sop-main { max-width: 760px; margin: 0 auto; padding: 48px 28px 72px; }
+.sop-back { color: var(--text-secondary); font-size: .85rem; }
+.sop-back:hover { color: var(--accent); }
+.sop-heading { margin: 36px 0 28px; padding-bottom: 24px; border-bottom: 1px solid var(--border-light); }
+.sop-heading p { color: var(--text-secondary); font-size: .9rem; margin-bottom: 8px; }
+.sop-heading h1 { font-size: clamp(1.6rem, 4vw, 2rem); font-weight: 600; line-height: 1.25; letter-spacing: -.035em; }
+.sop-content { font-size: 1rem; line-height: 1.85; overflow-wrap: anywhere; }
+.sop-content p { margin: 0 0 1.2em; }
+.sop-status { color: var(--text-secondary); }
+.sop-page a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+@media (max-width: 600px) {
+  .sop-main { padding: 28px 22px 48px; }
+  .sop-heading { margin-top: 28px; }
+}
+@media print {
+  .sop-main { max-width: none; padding: 0; }
+  .sop-back { display: none; }
+  .sop-heading { margin-top: 0; }
+  .sop-content { font-size: 11pt; line-height: 1.6; }
+  .sop-content p { orphans: 3; widows: 3; }
+}
