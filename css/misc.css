@@ -21,6 +21,13 @@
 .misc-page .photo-gallery { display: grid; grid-template-columns: 16fr 16fr 9fr; align-items: start; gap: 12px; }
 .misc-page .photo-gallery a { display: block; min-width: 0; border-radius: 4px; overflow: hidden; }
 .misc-page .photo-gallery img { display: block; width: 100%; height: auto; }
+.misc-page .art-piece { display: grid; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); gap: 28px; align-items: center; }
+.misc-page .art-piece img { display: block; width: 100%; height: auto; border-radius: 4px; }
+.misc-page .art-piece h3 { font-size: 1.05rem; font-weight: 600; line-height: 1.45; }
+.misc-page .art-piece h3 a:hover { color: var(--accent); }
+.misc-page .art-piece .art-meta { margin: 2px 0 10px; font-size: .8rem; font-style: italic; color: var(--text-secondary); }
+.misc-page .art-piece p { font-size: .9rem; line-height: 1.7; color: #555047; }
+.misc-page .art-piece .art-link { display: inline-block; margin-top: 10px; font-size: .85rem; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 .misc-page .misc-notes { columns: 2; column-gap: 22px; }
 .misc-page .misc-essay { margin: 0 0 22px; font-size: .9rem; line-height: 1.6; }
 .misc-page .misc-essay a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
@@ -40,6 +47,7 @@
   .misc-page .misc-intro { align-items: flex-start; flex-direction: column; gap: 20px; }
   .misc-page h1 { font-size: 2.5rem; }
   .misc-page .misc-notes { columns: 1; }
+  .misc-page .art-piece { grid-template-columns: 1fr; gap: 16px; }
   .misc-page .photo-gallery { grid-template-columns: 1fr; gap: 16px; }
   .misc-page .photo-gallery a:last-child { width: 75%; justify-self: center; }
 }

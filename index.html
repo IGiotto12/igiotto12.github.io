@@ -5,8 +5,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Jiaqi Wu — UC San Diego senior exploring adaptive intelligence through understanding, generation, and interaction.">
+    content="Jiaqi Wu — UC San Diego, Math–CS and Cognitive Science (Machine Learning & Neural Computation). Research on image editing, brain dynamics, and LLM agents.">
   <title>Jiaqi Wu | Adaptive Intelligence &amp; Machine Learning</title>
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jiaqi Wu">
+  <meta property="og:title" content="Jiaqi Wu | Adaptive Intelligence & Machine Learning">
+  <meta property="og:description"
+    content="UC San Diego, Math–CS and Cognitive Science. Research on image editing, brain dynamics, and LLM agents.">
+  <meta property="og:url" content="https://igiotto12.github.io/">
+  <meta property="og:image" content="https://igiotto12.github.io/src/thumbs/selfie.jpg">
+  <meta name="twitter:card" content="summary">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,6 +25,7 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="icon/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="icon/favicon.png">
 </head>
 
 <body class="home-page">
@@ -24,12 +34,12 @@
     <div class="nav-container">
       <div class="logo"><a href="#hero">JW.</a></div>
       <div class="nav-right">
-        <nav>
+        <nav aria-label="Main navigation">
           <ul>
             <li><a href="#hero">Home</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="pages/resume.html">Resume</a></li>
             <li><a href="pages/research.html">Research</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="pages/resume.html">CV</a></li>
             <li><a href="pages/misc.html">Misc</a></li>
           </ul>
         </nav>
@@ -44,17 +54,24 @@
         <div class="hero-text">
           <h1 class="reveal reveal-delay-1">Jiaqi Wu <span class="chinese-name">吴佳麒</span></h1>
           <p class="hero-subtitle reveal reveal-delay-2">
-            <span class="accent">UC San Diego</span> senior studying Math–CS and Cognitive Science (Neural Comp &amp; ML).
+            <span class="accent">UC San Diego</span> senior studying Math–CS and Cognitive Science (Neural Comp &amp; ML),
+            graduating in December 2026.
           </p>
           <p class="hero-subtitle reveal reveal-delay-2">
             I want to build intelligent systems that understand the world, generate possibilities, and adapt in real
             time—bringing <span class="accent">understanding and generation together</span> through continuous interaction.
           </p>
           <p class="hero-subtitle hero-availability reveal reveal-delay-2">
-            Open to internships from winter through summer 2027.
+            Applying to graduate programs, and looking for full-time or internship roles from January to August 2027.
           </p>
           <div class="hero-meta reveal reveal-delay-3">
             <div class="hero-socials">
+              <a href="https://scholar.google.com/citations?user=1H7xDV8AAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer"
+                class="social-link" aria-label="Google Scholar">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z" />
+                </svg>
+              </a>
               <a href="https://github.com/IGiotto12" target="_blank" rel="noopener noreferrer" class="social-link"
                 aria-label="GitHub">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -74,52 +91,84 @@
               <a href="pages/research.html" class="hero-cta">Research</a>
               <a href="#projects" class="hero-cta">Projects</a>
               <a href="pages/resume.html" class="hero-cta">CV</a>
-              <a href="mailto:igiotto12@gmail.com" class="hero-cta">Email</a>
+              <a href="mailto:jiaqiwu1224@gmail.com" class="hero-cta">Email</a>
             </div>
           </div>
         </div>
 
         <div class="hero-image reveal-right reveal-delay-2">
           <div class="image-wrapper">
-            <img src="src/selfie.jpg" alt="Jiaqi Wu">
+            <img src="src/thumbs/selfie.jpg" alt="Jiaqi Wu" width="720" height="718">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== PROJECTS ===== -->
-    <section id="projects" class="projects-section section" aria-labelledby="projects-title">
+    <!-- ===== RESEARCH ===== -->
+    <section id="research" class="section" aria-labelledby="research-title">
       <div class="container">
         <div class="work-heading">
-          <h2 id="projects-title">Projects</h2>
-          <a href="pages/research.html">Research &amp; reports ↗</a>
+          <h2 id="research-title">Research</h2>
+          <a href="pages/research.html">My contributions &amp; earlier reports ↗</a>
         </div>
-        <div class="work-list">
-          <article class="work-row" aria-labelledby="brain-dynamics-title">
-            <a href="output/pdf/brainmech-public.pdf#page=2" target="_blank" rel="noopener noreferrer" aria-label="View Figure 1 in the Brain Dynamics preprint">
-              <img class="work-preview" src="src/brainmech-fig1.png" alt="BrainMech Figure 1: modeling brain dynamics across the lifespan with a Koopman-structured foundation model" loading="lazy">
+        <div class="work-list research-list">
+          <article class="work-row" aria-labelledby="image-edit-title">
+            <a href="src/thumbs/image-editing-pipeline.webp" target="_blank" rel="noopener noreferrer" aria-label="View the image-editing method diagram at full size">
+              <img class="work-preview" src="src/thumbs/image-editing-pipeline.webp" alt="Method diagram: a critic model inspects each edit; when an edit fails, its feedback, the source image, and the previous result condition the next editing round" width="1286" height="515" loading="lazy">
             </a>
             <div class="work-copy">
-              <h3 id="brain-dynamics-title"><a href="output/pdf/brainmech-public.pdf" target="_blank" rel="noopener noreferrer">Brain Dynamics</a></h3>
-              <p class="work-meta">Research project · Manuscript under review</p>
-              <p class="work-description">Modeling how brain states evolve across the lifespan with a dynamics-aware fMRI foundation model.</p>
+              <h3 id="image-edit-title">Recursive Image Editing</h3>
+              <p class="work-meta">Research in progress · mlPC Lab, UC San Diego · Advisor: Prof. Zhuowen Tu</p>
+              <p class="work-description">An image editor that learns to repair its own failed edits, using feedback from a vision-language critic, its previous attempt, and the source image.</p>
+              <ul class="work-tags" aria-label="Topics">
+                <li>Post-training</li>
+                <li>RL</li>
+                <li>Data generation pipeline</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="work-row" aria-labelledby="brainmech-title">
+            <a href="output/pdf/brainmech-public.pdf#page=2" target="_blank" rel="noopener noreferrer" aria-label="View Figure 1 in the BrainMech manuscript">
+              <img class="work-preview" src="src/thumbs/brainmech-fig1.webp" alt="BrainMech Figure 1: modeling brain dynamics across the lifespan with a Koopman-structured foundation model" width="990" height="410" loading="lazy">
+            </a>
+            <div class="work-copy">
+              <h3 id="brainmech-title"><a href="output/pdf/brainmech-public.pdf" target="_blank" rel="noopener noreferrer">BrainMech: A Mechanistic Foundation Model for Human Brain Dynamics Across Lifespan</a></h3>
+              <p class="research-authors"><strong>Jiaqi Wu</strong>, Shuheng Cao, Tingting Dan, Ziquan Wei, Zhixuan Zhou, Guorong Wu</p>
+              <p class="work-meta">Manuscript · 2026 · ACM Lab, UNC Chapel Hill</p>
+              <p class="work-description">A Koopman-structured fMRI foundation model that learns analyzable latent brain dynamics across the lifespan.</p>
+              <ul class="work-tags" aria-label="Topics">
+                <li>Pre-training</li>
+                <li>Foundation model</li>
+                <li>Dynamics modeling</li>
+              </ul>
               <div class="work-links">
                 <a href="output/pdf/brainmech-public.pdf" target="_blank" rel="noopener noreferrer">Manuscript</a>
+                <a href="https://github.com/IGiotto12/BrainMech" target="_blank" rel="noopener noreferrer">Code</a>
               </div>
             </div>
           </article>
 
-          <article class="work-row" aria-labelledby="image-edit-title">
-            <img class="work-preview" src="src/image-edit-preview.png" alt="Illustrative image-editing preview showing a vase color edit and SFT to RL (GRPO) stages; not experimental output" loading="lazy">
+          <article class="work-row" aria-labelledby="knowplan-title">
+            <!-- KnowPlan Figure 1, Cao et al. (2026), unmodified, CC BY 4.0.
+                 Source: https://arxiv.org/html/2608.06530v1
+                 License: https://creativecommons.org/licenses/by/4.0/ -->
+            <a href="https://arxiv.org/abs/2608.06530" target="_blank" rel="noopener noreferrer" aria-label="Read the KnowPlan preprint">
+              <img class="work-preview" src="src/thumbs/knowplan-overview.webp" alt="KnowPlan system overview: curriculum extraction with CatalogBrowse followed by personalized degree planning with DegreeMap" width="840" height="370" loading="lazy">
+            </a>
             <div class="work-copy">
-              <h3 id="image-edit-title">Image Editing</h3>
-              <p class="work-meta">Research in progress · Qwen-Image-Edit</p>
-              <p class="work-description">Supervised fine-tuning (<strong>SFT</strong>) and reinforcement learning with <strong>GRPO</strong> for instruction-guided image editing.</p>
+              <h3 id="knowplan-title"><a href="https://arxiv.org/abs/2608.06530" target="_blank" rel="noopener noreferrer">KnowPlan: Knowledge-Driven AI Agents for Smart Degree Pathway Planning</a></h3>
+              <p class="research-authors">Shuheng Cao*, Weijia Zhang*, <strong>Jiaqi Wu</strong>*, Xiyun Hu, Yat Yang, Juqy Chen, Zhaoxiang Feng <span class="author-note">(*co-first authors)</span></p>
+              <p class="work-meta">arXiv preprint · 2026</p>
+              <p class="work-description">Separates curriculum extraction from personalized, constraint-aware degree planning.</p>
+              <div class="work-links">
+                <a href="https://arxiv.org/abs/2608.06530" target="_blank" rel="noopener noreferrer">arXiv</a>
+              </div>
             </div>
           </article>
 
           <article class="work-row" aria-labelledby="cyberneuro-title">
-            <img class="work-preview" src="src/cyberneuro.jpg" alt="CyberNeuro brain network analysis interface" loading="lazy">
+            <img class="work-preview" src="src/thumbs/cyberneuro.webp" alt="CyberNeuro brain network analysis interface" width="720" height="402" loading="lazy">
             <div class="work-copy">
               <h3 id="cyberneuro-title"><a href="https://acmlab.github.io/brain-network-chart/" target="_blank" rel="noopener noreferrer">CyberNeuro</a></h3>
               <p class="work-meta">Research project · Agent systems</p>
@@ -136,81 +185,86 @@
               </div>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
 
-          <article class="work-row" aria-labelledby="lungo-title">
-            <img class="work-preview" src="src/OpyTown.png" alt="Lungo+ multi-agent simulation" loading="lazy">
-            <div class="work-copy">
-              <h3 id="lungo-title"><a href="https://devpost.com/software/lungo" target="_blank" rel="noopener noreferrer">Lungo+</a></h3>
-              <p class="work-meta">Multi-agent systems · SanDHack 2026 award</p>
-              <p class="work-description">Multi-agent simulation with publish/subscribe coordination.</p>
-              <div class="work-links">
-                <a href="https://devpost.com/software/lungo" target="_blank" rel="noopener noreferrer">Project</a>
-                <a href="https://github.com/IGiotto12/OpyTown" target="_blank" rel="noopener noreferrer">Code</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="work-row" aria-labelledby="trai-title">
-            <!-- KnowPlan Figure 1, Cao et al. (2026), unmodified, CC BY 4.0.
-                 Source: https://arxiv.org/html/2608.06530v1
-                 License: https://creativecommons.org/licenses/by/4.0/ -->
-            <a href="https://arxiv.org/abs/2608.06530" target="_blank" rel="noopener noreferrer" aria-label="Read the related KnowPlan paper">
-              <img class="work-preview" src="src/knowplan-overview.png" alt="KnowPlan system overview: curriculum extraction with CatalogBrowse followed by personalized degree planning with DegreeMap" loading="lazy">
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects" class="section" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="work-heading">
+          <h2 id="projects-title">Projects</h2>
+          <a href="pages/misc.html#art">Art &amp; other things ↗</a>
+        </div>
+        <div class="project-grid">
+          <article class="project-tile work-copy" aria-labelledby="lungo-title">
+            <a class="project-thumb" href="https://devpost.com/software/lungo" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+              <img src="src/thumbs/lungo.webp" alt="" width="720" height="505" loading="lazy">
             </a>
-            <div class="work-copy">
-              <h3 id="trai-title"><a href="https://traied-igiotto12s-projects.vercel.app/" target="_blank" rel="noopener noreferrer">Trai</a></h3>
-              <p class="work-meta">AI agents · Academic planning</p>
-              <p class="work-description">An AI academic planner that uses university catalogs and prerequisite requirements to build personalized course plans.</p>
-              <div class="work-links">
-                <a href="https://traied-igiotto12s-projects.vercel.app/" target="_blank" rel="noopener noreferrer">Website</a>
-                <a href="https://arxiv.org/abs/2608.06530" target="_blank" rel="noopener noreferrer" title="Related paper by Cao et al. (2026)">KnowPlan paper</a>
-              </div>
+            <p class="work-meta">Hackathon · Multi-agent systems</p>
+            <h3 id="lungo-title"><a href="https://devpost.com/software/lungo" target="_blank" rel="noopener noreferrer">Lungo+</a></h3>
+            <p class="work-description">Multi-agent town simulation with publish/subscribe coordination. Winner of the Multi-Agent System Challenge at SanD Hackathon 2026.</p>
+            <div class="work-links">
+              <a href="https://devpost.com/software/lungo" target="_blank" rel="noopener noreferrer">Project</a>
+              <a href="https://github.com/IGiotto12/OpyTown" target="_blank" rel="noopener noreferrer">Code</a>
             </div>
           </article>
 
-          <article class="work-row" aria-labelledby="robot-title">
-            <img class="work-preview" src="src/robot.png" alt="Scene rendered by Robot in a Box" loading="lazy">
-            <div class="work-copy">
-              <h3 id="robot-title"><a href="https://github.com/IGiotto12/cse167-project" target="_blank" rel="noopener noreferrer">Robot in a Box</a></h3>
-              <p class="work-meta">Course project · C++ / Computer graphics</p>
-              <p class="work-description">A ray tracer with reflection, refraction, and soft shadows.</p>
-              <div class="work-links">
-                <a href="https://github.com/IGiotto12/cse167-project" target="_blank" rel="noopener noreferrer">Code</a>
-              </div>
+          <article class="project-tile work-copy" aria-labelledby="agential-title">
+            <a class="project-thumb" href="https://github.com/agential-ai/agential" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+              <img src="src/thumbs/agential-react.svg" alt="" width="320" height="200" loading="lazy">
+            </a>
+            <p class="work-meta">Open source · LLM agents</p>
+            <h3 id="agential-title"><a href="https://github.com/agential-ai/agential" target="_blank" rel="noopener noreferrer">Agential</a></h3>
+            <p class="work-description">Contributor to an open-source library of language agents. Extended the ReAct agent to the TriviaQA benchmark.</p>
+            <div class="work-links">
+              <a href="https://github.com/agential-ai/agential" target="_blank" rel="noopener noreferrer">Code</a>
             </div>
           </article>
 
-          <article class="work-row" aria-labelledby="fine-title">
-            <img class="work-preview" src="src/Fine-t_ne.png" alt="Fine-t_ne artwork" loading="lazy">
-            <div class="work-copy">
-              <h3 id="fine-title"><a href="https://drive.google.com/file/d/1qU5fKgSc5LvM1Xhv1EO9SKUvrKhUaF75/view?usp=sharing" target="_blank" rel="noopener noreferrer">Fine-t_ne</a></h3>
-              <p class="work-meta">Generative art</p>
-              <p class="work-description">MECHANICA X MORTALIS — an exploration of AI and artistic expression.</p>
-              <div class="work-links">
-                <a href="https://drive.google.com/file/d/1qU5fKgSc5LvM1Xhv1EO9SKUvrKhUaF75/view?usp=sharing" target="_blank" rel="noopener noreferrer">Demo</a>
-              </div>
+          <article class="project-tile work-copy" aria-labelledby="robot-title">
+            <a class="project-thumb" href="https://github.com/IGiotto12/cse167-project" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+              <img src="src/thumbs/robot.webp" alt="" width="720" height="540" loading="lazy">
+            </a>
+            <p class="work-meta">Course project · C++ / Computer graphics</p>
+            <h3 id="robot-title"><a href="https://github.com/IGiotto12/cse167-project" target="_blank" rel="noopener noreferrer">Robot in a Box</a></h3>
+            <p class="work-description">A ray tracer with reflection, refraction, and soft shadows.</p>
+            <div class="work-links">
+              <a href="https://github.com/IGiotto12/cse167-project" target="_blank" rel="noopener noreferrer">Code</a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ===== CONTACT — Subtle ===== -->
+    <!-- ===== CONTACT ===== -->
     <section class="contact-section section">
       <div class="container">
         <div class="contact-inner reveal">
           <div class="contact-text">
             <h2>Get in Touch</h2>
-            <p>Open to research collaborations, internships, and ambitious projects.</p>
+            <p>Open to research collaborations, full-time roles, and internships.</p>
           </div>
-          <a href="mailto:igiotto12@gmail.com" class="contact-link">
-            igiotto12@gmail.com
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
+          <div class="contact-links">
+            <a href="mailto:jiaqiwu1224@gmail.com" class="contact-link">
+              <span class="contact-label">Work</span>
+              jiaqiwu1224@gmail.com
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="mailto:jiw188@ucsd.edu" class="contact-link">
+              <span class="contact-label">School</span>
+              jiw188@ucsd.edu
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </section>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-labelledby="t">
+  <title id="t">The ReAct loop: thought, action, observation</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 8 4 0 8z" fill="#2563ff"/>
+    </marker>
+  </defs>
+  <rect width="320" height="200" fill="#f6f8ff"/>
+  <text x="18" y="30" font-family="Inter, Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#1d1d1f">agential</text>
+  <text x="18" y="46" font-family="Inter, Segoe UI, sans-serif" font-size="10" fill="#6e6e73">ReAct agent · TriviaQA</text>
+  <g font-family="Inter, Segoe UI, sans-serif" font-size="12" font-weight="600" text-anchor="middle">
+    <rect x="114" y="62" width="92" height="30" rx="15" fill="#fff" stroke="#2563ff" stroke-width="1.5"/>
+    <text x="160" y="81" fill="#1d1d1f">Thought</text>
+    <rect x="200" y="140" width="92" height="30" rx="15" fill="#fff" stroke="#2563ff" stroke-width="1.5"/>
+    <text x="246" y="159" fill="#1d1d1f">Action</text>
+    <rect x="28" y="140" width="104" height="30" rx="15" fill="#fff" stroke="#2563ff" stroke-width="1.5"/>
+    <text x="80" y="159" fill="#1d1d1f">Observation</text>
+  </g>
+  <g fill="none" stroke="#2563ff" stroke-width="1.5" marker-end="url(#arrow)">
+    <path d="M206 82 Q246 92 246 136"/>
+    <path d="M198 155 H136"/>
+    <path d="M80 136 Q80 92 112 82"/>
+  </g>
+</svg>

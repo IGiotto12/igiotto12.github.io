@@ -4,8 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume | Jiaqi Wu</title>
-    <meta name="description" content="Resume of Jiaqi Wu — AI Developer & Researcher.">
+    <title>CV | Jiaqi Wu</title>
+    <meta name="description" content="CV of Jiaqi Wu — UC San Diego, Math–CS and Cognitive Science (Machine Learning & Neural Computation).">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Jiaqi Wu">
+    <meta property="og:title" content="CV | Jiaqi Wu">
+    <meta property="og:description" content="CV of Jiaqi Wu — UC San Diego, Math–CS and Cognitive Science.">
+    <meta property="og:url" content="https://igiotto12.github.io/pages/resume.html">
+    <meta property="og:image" content="https://igiotto12.github.io/src/thumbs/selfie.jpg">
+    <meta name="twitter:card" content="summary">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +23,7 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="../icon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="../icon/favicon.png">
 </head>
 
 <body>
@@ -23,33 +32,15 @@
         <div class="nav-container">
             <div class="logo"><a href="../index.html">JW.</a></div>
             <div class="nav-right">
-                <nav>
+                <nav aria-label="Main navigation">
                     <ul>
                         <li><a href="../index.html">Home</a></li>
-                        <li><a href="../index.html#projects">Projects</a></li>
-                        <li><a href="resume.html" class="active">Resume</a></li>
                         <li><a href="research.html">Research</a></li>
+                        <li><a href="../index.html#projects">Projects</a></li>
+                        <li><a href="resume.html" class="active" aria-current="page">CV</a></li>
                         <li><a href="misc.html">Misc</a></li>
                     </ul>
                 </nav>
-                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                </button>
             </div>
         </div>
     </header>
@@ -57,14 +48,14 @@
     <main class="page-container">
         <div class="container">
             <div class="resume-header reveal">
-                <h1>My Resume</h1>
-                <a href="../resume.pdf" download="resume.pdf" class="btn-main">
+                <h1>CV</h1>
+                <a href="../resume.pdf" download="Jiaqi_Wu_CV.pdf" class="btn-main">
                     Download PDF &#8595;
                 </a>
             </div>
 
             <div class="glass-panel resume-viewer reveal reveal-delay-1">
-                <iframe src="../resume.pdf" width="100%" height="100%" title="Resume PDF">
+                <iframe src="../resume.pdf" width="100%" height="100%" title="Jiaqi Wu CV (PDF)">
                     <p>Your browser does not support PDFs. <a href="../resume.pdf">Download the PDF</a>.</p>
                 </iframe>
             </div>
@@ -72,7 +63,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 Jiaqi Wu &middot; igiotto12@gmail.com</p>
+        <p>&copy; 2026 Jiaqi Wu &middot; <a href="mailto:jiaqiwu1224@gmail.com">jiaqiwu1224@gmail.com</a></p>
     </footer>
 
     <script src="../js/app.js"></script>

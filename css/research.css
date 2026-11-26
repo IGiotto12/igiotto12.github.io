@@ -6,10 +6,6 @@
 .research-intro p:first-of-type { color: var(--text-primary); }
 .research-section h2 { font-size: 1.2rem; font-weight: 600; letter-spacing: -.02em; margin-bottom: 24px; }
 .research-section .work-list { gap: 30px; }
-.research-authors { font-size: .8rem; line-height: 1.6; color: var(--text-secondary); margin: 0 0 3px; }
-.research-authors strong { font-weight: 600; color: var(--text-primary); }
-.research-contribution { font-size: .825rem; line-height: 1.6; color: var(--text-secondary); margin-top: 5px; }
-.research-contribution strong { font-weight: 600; color: var(--text-primary); }
 .earlier-research { border-top: 1px solid var(--border-light); margin-top: 38px; padding-top: 28px; }
 .report-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 36px; }
 .report-list .work-copy h3 { font-size: .925rem; }

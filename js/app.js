@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-
     // ============================================================
-    // 3. SCROLL REVEAL — IntersectionObserver with stagger
+    // 1. SCROLL REVEAL — IntersectionObserver
     // ============================================================
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -15,36 +14,12 @@ document.addEventListener('DOMContentLoaded', function () {
         rootMargin: '0px 0px -50px 0px'
     });
 
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+    document.querySelectorAll('.reveal, .reveal-right').forEach(el => {
         revealObserver.observe(el);
     });
 
     // ============================================================
-    // 4. 3D TILT on Project Cards
-    // ============================================================
-    const cards = document.querySelectorAll('.project-card');
-
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            const rotateX = ((y - centerY) / centerY) * -6;
-            const rotateY = ((x - centerX) / centerX) * 6;
-
-            card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.01)`;
-        });
-
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) scale(1)';
-        });
-    });
-
-    // ============================================================
-    // 5. HEADER — Hide on scroll down, show on scroll up
+    // 2. HEADER — Hide on scroll down, show on scroll up
     // ============================================================
     let lastScrollTop = 0;
     const header = document.getElementById('navbar');
@@ -63,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ============================================================
-    // 6. SCROLL SPY — Active nav link
+    // 3. SCROLL SPY — Active nav link
     // ============================================================
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('nav ul li a[href^="#"]');
@@ -89,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ============================================================
-    // 9. SMOOTH SCROLL for anchor links
+    // 4. SMOOTH SCROLL for anchor links
     // ============================================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {

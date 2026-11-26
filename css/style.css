@@ -1,15 +1,13 @@
 /* ========================================================================
-   PREMIUM PORTFOLIO — Design System (Light/Dark)
+   PORTFOLIO — Design System
    ======================================================================== */
 
-/* 1. Design Tokens — Light Mode (Default) */
+/* 1. Design Tokens */
 :root {
-  /* Color System — Light */
+  /* Color */
   --bg-primary: #ffffff;
   --bg-secondary: #f8f8fa;
-  --bg-elevated: #f0f0f2;
   --bg-card: #ffffff;
-  --bg-card-hover: #f5f5f7;
 
   --text-primary: #1d1d1f;
   --text-secondary: #6e6e73;
@@ -23,17 +21,10 @@
   --border-subtle: rgba(0, 0, 0, 0.06);
   --border-light: rgba(0, 0, 0, 0.1);
 
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 16px 64px rgba(0, 0, 0, 0.1);
   --shadow-glow: 0 0 60px rgba(37, 99, 255, 0.06);
 
   --nav-bg: rgba(255, 255, 255, 0.85);
-  --canvas-particle: rgba(0, 0, 0, 0.15);
-  --canvas-line: rgba(0, 0, 0, 0.03);
-  --cursor-color: #1d1d1f;
-  --cursor-ring-border: rgba(0, 0, 0, 0.25);
-  --cursor-ring-active-bg: rgba(0, 0, 0, 0.04);
 
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -46,15 +37,10 @@
 
   /* Transitions */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   --duration-fast: 0.2s;
   --duration-normal: 0.4s;
-  --duration-slow: 0.8s;
   --duration-reveal: 1s;
 }
-
-
 
 /* 2. Base */
 html {
@@ -72,7 +58,6 @@ body {
   overflow-x: hidden;
   font-weight: 400;
   letter-spacing: -0.01em;
-  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 a {
@@ -98,10 +83,6 @@ ul {
   padding: 0 clamp(20px, 5vw, 60px);
 }
 
-.container--wide {
-  max-width: var(--container-wide);
-}
-
 /* 4. Navigation */
 header {
   position: fixed;
@@ -112,8 +93,7 @@ header {
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid var(--border-subtle);
-  transition: transform 0.5s var(--ease-out-expo),
-    background-color 0.4s ease;
+  transition: transform 0.5s var(--ease-out-expo);
 }
 
 .nav-container {
@@ -179,7 +159,6 @@ nav a.active::after {
   width: 100%;
 }
 
-
 /* 5. Hero Section */
 .hero-section {
   display: flex;
@@ -224,19 +203,6 @@ nav a.active::after {
 
 .hero-text {
   flex: 1.2;
-}
-
-.hero-label {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 20px;
-  padding: 6px 16px;
-  border: 1px solid rgba(37, 99, 255, 0.3);
-  border-radius: 100px;
 }
 
 .hero-text h1 {
@@ -353,16 +319,6 @@ nav a.active::after {
   box-shadow: 0 8px 30px rgba(37, 99, 255, 0.3);
 }
 
-.hero-cta svg {
-  width: 16px;
-  height: 16px;
-  transition: transform var(--duration-normal) var(--ease-out-expo);
-}
-
-.hero-cta:hover svg {
-  transform: translateX(3px);
-}
-
 .hero-image {
   flex: 0.8;
   display: flex;
@@ -390,60 +346,24 @@ nav a.active::after {
   transform: scale(1.05);
 }
 
-/* 6. Section System */
+/* 6. Sections */
 .section {
   padding: var(--section-padding) 0;
   position: relative;
+  scroll-margin-top: 72px;
 }
 
-.section-label {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 16px;
-  display: block;
+.home-page {
+  --section-padding: clamp(36px, 4vw, 52px);
 }
 
-.section-title {
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin: 0 0 20px 0;
-  color: var(--text-primary);
-}
-
-.section-subtitle {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  max-width: 600px;
-  line-height: 1.6;
-  font-weight: 300;
-}
-
-.section-header {
-  margin-bottom: clamp(40px, 6vw, 80px);
-}
-
-/* 7. Projects Section */
-.projects-section {
-  padding: var(--section-padding) 0;
-  scroll-margin-top: 80px;
-  background: var(--bg-secondary);
-  transition: background-color 0.4s ease;
-}
-
-/* Homepage projects: compact academic-style entries. */
-.home-page .projects-section { background: var(--bg-primary); }
+/* 7. Work lists (homepage research, research page) */
 .work-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 24px; }
 .work-heading h2 { font-size: 1.6rem; font-weight: 600; letter-spacing: -0.025em; }
 .work-heading > a { font-size: .8rem; color: var(--text-secondary); }
 .work-list { display: grid; gap: 28px; }
 .work-row { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 28px; align-items: center; }
 .work-preview { display: block; width: 180px; height: 118px; object-fit: contain; border-radius: 3px; }
-.work-preview--logo { padding: 15px; }
 .work-copy h3 { font-size: 1rem; font-weight: 600; line-height: 1.45; margin: 0 0 4px; }
 .work-copy h3 a { color: var(--accent); }
 .work-meta { color: var(--text-secondary); font-size: .8rem; font-style: italic; line-height: 1.5; margin: 0 0 6px; }
@@ -452,20 +372,45 @@ nav a.active::after {
 .work-links a { color: var(--accent); font-size: .8rem; }
 .work-links a::before { content: '['; }
 .work-links a::after { content: ']'; }
-.work-list a:hover, .work-heading > a:hover { text-decoration: underline; text-underline-offset: 3px; }
-.projects-section a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+.work-copy a:hover, .work-heading > a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.section a:focus-visible, .research-page a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
 .work-metrics { display: flex; gap: 18px; margin-top: 8px; }
 .work-metrics > div { display: flex; flex-direction: row-reverse; gap: 4px; align-items: baseline; }
 .work-metrics dt { color: var(--text-secondary); font-size: .75rem; }
 .work-metrics dd { font-size: .75rem; font-weight: 600; color: var(--text-primary); }
+
+/* Research entries: wider figures, publication-style author lines. */
+.research-list .work-row { grid-template-columns: 240px minmax(0, 1fr); }
+.research-list .work-preview { width: 240px; height: 140px; }
+.research-authors { font-size: .8rem; line-height: 1.6; color: var(--text-secondary); margin: 0 0 3px; }
+.research-authors strong { font-weight: 600; color: var(--text-primary); }
+.research-authors .author-note { font-size: .75rem; }
+.research-contribution { font-size: .825rem; line-height: 1.6; color: var(--text-secondary); margin-top: 5px; }
+.research-contribution strong { font-weight: 600; color: var(--text-primary); }
+.work-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+.work-tags li { padding: 2px 9px; border-radius: 100px; background: var(--accent-subtle); border: 1px solid rgba(37, 99, 255, 0.14); color: #3654b8; font-size: .72rem; font-weight: 500; line-height: 1.6; }
+
+/* 8. Projects: compact tiles, kept visually distinct from research. */
+.project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 28px; }
+.project-thumb { display: block; margin-bottom: 14px; }
+.project-thumb img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 4px; border: 1px solid var(--border-subtle); background: var(--bg-secondary); }
+.project-tile .work-meta { margin-bottom: 3px; }
+
+@media (max-width: 860px) {
+  .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (max-width: 680px) {
   .work-row { grid-template-columns: 115px minmax(0, 1fr); gap: 18px; align-items: start; }
   .work-preview { width: 115px; height: 92px; }
-  .work-preview--logo { padding: 12px; }
+  .research-list .work-row { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .research-list .work-preview { width: 100%; height: auto; max-height: 220px; object-position: left center; }
   .work-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
   .work-metrics > div { flex-direction: column-reverse; gap: 1px; }
   .work-metrics dt { font-size: .65rem; }
   .work-heading { flex-wrap: wrap; gap: 6px 16px; }
+}
+@media (max-width: 520px) {
+  .project-grid { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 420px) {
   .work-row { grid-template-columns: 88px minmax(0, 1fr); gap: 14px; }
@@ -474,83 +419,9 @@ nav a.active::after {
   .work-description { font-size: .8125rem; }
 }
 
-/* Project Card */
-.project-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: 20px;
-  overflow: hidden;
-  position: relative;
-  transition: transform var(--duration-normal) var(--ease-out-expo),
-    border-color var(--duration-normal) ease,
-    box-shadow var(--duration-normal) ease,
-    background-color 0.4s ease;
-  transform-style: preserve-3d;
-}
-
-.project-card:hover {
-  border-color: var(--border-light);
-  box-shadow: var(--shadow-md);
-}
-
-.card-image {
-  height: 220px;
-  overflow: hidden;
-  position: relative;
-  background: var(--bg-elevated);
-}
-
-.card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.8s var(--ease-out-expo);
-}
-
-.project-card:hover .card-image img {
-  transform: scale(1.05);
-}
-
-.card-content {
-  padding: 24px 28px 28px;
-}
-
-.card-content h3 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin: 0 0 8px 0;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-}
-
-.card-content p {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin: 0;
-}
-
-.btn-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 16px;
-  color: var(--accent);
-  font-weight: 600;
-  font-size: 0.85rem;
-  letter-spacing: 0.01em;
-  transition: gap var(--duration-normal) var(--ease-out-expo);
-}
-
-.btn-link:hover {
-  gap: 10px;
-}
-
-/* 9. Contact Section — Subtle */
+/* 9. Contact */
 .contact-section {
-  padding: var(--section-padding) 0;
   background: var(--bg-primary);
-  transition: background-color 0.4s ease;
 }
 
 .contact-inner {
@@ -573,6 +444,23 @@ nav a.active::after {
   color: var(--text-secondary);
   font-weight: 300;
   margin: 0;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.contact-label {
+  min-width: 56px;
+  text-align: left;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
 }
 
 .contact-link {
@@ -599,6 +487,7 @@ nav a.active::after {
 .contact-link svg {
   width: 14px;
   height: 14px;
+  margin-left: auto;
   transition: transform var(--duration-normal) var(--ease-out-expo);
 }
 
@@ -615,10 +504,17 @@ footer {
   border-top: 1px solid var(--border-subtle);
   background: var(--bg-primary);
   letter-spacing: 0.02em;
-  transition: background-color 0.4s ease;
 }
 
-/* 12. Scroll Reveal Animations */
+footer a:hover {
+  color: var(--accent);
+}
+
+.home-page footer {
+  padding-block: 24px;
+}
+
+/* 11. Scroll Reveal Animations */
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -643,30 +539,6 @@ footer {
   transition-delay: 0.3s;
 }
 
-.reveal-delay-4 {
-  transition-delay: 0.4s;
-}
-
-.reveal-delay-5 {
-  transition-delay: 0.5s;
-}
-
-.reveal-delay-6 {
-  transition-delay: 0.6s;
-}
-
-.reveal-left {
-  opacity: 0;
-  transform: translateX(-40px);
-  transition: opacity var(--duration-reveal) var(--ease-out-expo),
-    transform var(--duration-reveal) var(--ease-out-expo);
-}
-
-.reveal-left.is-visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
 .reveal-right {
   opacity: 0;
   transform: translateX(40px);
@@ -679,18 +551,6 @@ footer {
   transform: translateX(0);
 }
 
-.reveal-scale {
-  opacity: 0;
-  transform: scale(0.95);
-  transition: opacity var(--duration-reveal) var(--ease-out-expo),
-    transform var(--duration-reveal) var(--ease-out-expo);
-}
-
-.reveal-scale.is-visible {
-  opacity: 1;
-  transform: scale(1);
-}
-
 /* Keep the first screen readable without waiting for scroll observers. */
 .hero-section .reveal,
 .hero-section .reveal-right {
@@ -698,8 +558,16 @@ footer {
   transform: none;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
 
-/* 14. Subpage Styles */
+/* 12. CV page */
 .page-container {
   padding-top: 120px;
   padding-bottom: 80px;
@@ -712,32 +580,6 @@ footer {
   border-radius: 20px;
   padding: 40px;
   margin-bottom: 40px;
-  transition: background-color 0.4s ease;
-}
-
-.interest-section h2 {
-  font-size: 1.6rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin: 0 0 16px 0;
-  color: var(--text-primary);
-}
-
-.interest-section p {
-  font-size: 1rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  max-width: 800px;
-  font-weight: 400;
-}
-
-.interest-section p strong {
-  color: var(--accent);
-  font-weight: 600;
-}
-
-.interest-section p + p {
-  margin-top: 16px;
 }
 
 .resume-header {
@@ -753,24 +595,6 @@ footer {
   letter-spacing: -0.03em;
   color: var(--text-primary);
   margin: 0;
-}
-
-.resume-direct-link {
-  font-size: 0.9rem;
-  color: var(--text-tertiary);
-  margin: -12px 0 24px 0;
-  line-height: 1.5;
-  overflow-wrap: anywhere;
-}
-
-.resume-direct-link a {
-  text-decoration: none;
-  color: var(--accent);
-  font-weight: 500;
-}
-
-.resume-direct-link a:hover {
-  text-decoration: underline;
 }
 
 .resume-viewer {
@@ -800,83 +624,7 @@ footer {
   box-shadow: 0 8px 30px rgba(37, 99, 255, 0.3);
 }
 
-.sub-text {
-  font-weight: 500;
-  color: var(--text-primary);
-  margin-bottom: 4px;
-}
-
-.meta {
-  font-size: 0.82rem;
-  color: var(--text-tertiary);
-  margin-top: 6px;
-  margin-bottom: 16px;
-  font-style: normal;
-  font-weight: 400;
-}
-
-.meta strong {
-  color: var(--text-secondary);
-}
-
-/* Section header for subpages */
-.section-header {
-  text-align: center;
-  margin-bottom: 48px;
-}
-
-.section-header h2 {
-  font-size: 2.2rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: var(--text-primary);
-  margin: 0 0 12px 0;
-}
-
-.underline {
-  width: 40px;
-  height: 3px;
-  background: var(--accent);
-  margin: 0 auto;
-  border-radius: 2px;
-}
-
-/* Grid for research cards */
-.grid-layout {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
-}
-
-/* Loading state */
-.loading {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  text-align: center;
-  padding: 40px;
-}
-
-/* 15. Mobile Responsiveness */
-.home-page {
-  --section-padding: clamp(36px, 4vw, 52px);
-}
-
-.home-page .section-header {
-  margin-bottom: 28px;
-}
-
-.home-page .section-subtitle {
-  margin-inline: auto;
-}
-
-.home-page .section-label {
-  margin-bottom: 8px;
-}
-
-.home-page footer {
-  padding-block: 24px;
-}
-
+/* 13. Mobile */
 @media (max-width: 768px) {
   .hero-section {
     padding: 100px 0 32px;
@@ -884,10 +632,6 @@ footer {
 
   .hero-section .split-layout {
     gap: 24px;
-  }
-
-  .home-page .section-header {
-    margin-bottom: 24px;
   }
 
   .hero-section::after {
@@ -952,13 +696,5 @@ footer {
 
   .resume-viewer {
     height: 50vh;
-  }
-
-  .grid-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .section-header {
-    text-align: center;
   }
 }
