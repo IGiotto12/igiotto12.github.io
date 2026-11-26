@@ -21,7 +21,6 @@
   --border-subtle: rgba(0, 0, 0, 0.06);
   --border-light: rgba(0, 0, 0, 0.1);
 
-  --shadow-lg: 0 16px 64px rgba(0, 0, 0, 0.1);
   --shadow-glow: 0 0 60px rgba(37, 99, 255, 0.06);
 
   --nav-bg: rgba(255, 255, 255, 0.85);
@@ -193,16 +192,20 @@ nav a.active::after {
   z-index: -1;
 }
 
+/* Photo on the left, text on the right. The text stays first in the HTML so
+   screen readers and search engines read the name before the photo. */
 .split-layout {
   display: flex;
+  flex-direction: row-reverse;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 100%;
-  gap: clamp(40px, 6vw, 100px);
+  gap: clamp(32px, 4vw, 56px);
 }
 
 .hero-text {
-  flex: 1.2;
+  flex: 1;
+  min-width: 0;
 }
 
 .hero-text h1 {
@@ -320,18 +323,18 @@ nav a.active::after {
 }
 
 .hero-image {
-  flex: 0.8;
+  flex: 0 0 auto;
   display: flex;
   justify-content: center;
 }
 
 .image-wrapper {
-  width: clamp(250px, 22vw, 340px);
-  height: clamp(250px, 22vw, 340px);
+  width: clamp(170px, 14vw, 210px);
+  height: clamp(170px, 14vw, 210px);
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid var(--border-light);
-  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08), var(--shadow-glow);
   position: relative;
 }
 
@@ -661,8 +664,8 @@ footer a:hover {
   }
 
   .image-wrapper {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
   }
 
   .nav-container {
