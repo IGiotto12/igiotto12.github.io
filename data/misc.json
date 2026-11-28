@@ -1,0 +1,68 @@
+{
+  "works": [
+    {
+      "id": "see-paraglider",
+      "modality": "see",
+      "date": "2023-11-30",
+      "title": "Paraglider over the ocean",
+      "image": "data/4DA3C77E-4242-4364-8310-0070273B33D7_1_105_c.jpeg",
+      "thumb": "src/thumbs/see-paraglider.webp",
+      "alt": "A paraglider above the ocean, with sunlight reflected on the water",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "id": "see-moon",
+      "modality": "see",
+      "date": "2024-02-11",
+      "title": "Moon at dusk",
+      "image": "data/12A58DF7-14D8-464B-996E-147A949BFA70_1_105_c.jpeg",
+      "thumb": "src/thumbs/see-moon.webp",
+      "alt": "A crescent moon above coastal buildings and an orange horizon at dusk",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "id": "see-sunset",
+      "modality": "see",
+      "date": "2024-06-15",
+      "title": "Coastal sunset",
+      "image": "data/1B262075-9933-47D9-9A42-5D78681675B7_1_105_c.jpeg",
+      "thumb": "src/thumbs/see-sunset.webp",
+      "alt": "The sun setting over the coast beyond a wooden fence and coastal plants",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "id": "make-fine-tune",
+      "modality": "make",
+      "date": "2025-12-15",
+      "title": "Fine-t_ne",
+      "kind": "Generative art",
+      "text": "MECHANICA X MORTALIS — an exploration of AI and artistic expression.",
+      "video": "src/fine-t_ne.mp4",
+      "preview": "src/fine-t_ne-preview.mp4",
+      "poster": "src/thumbs/fine-t_ne-poster.webp",
+      "thumb": "src/thumbs/fine-t_ne-thumb.webp"
+    },
+    {
+      "id": "write-deeper-learning",
+      "modality": "write",
+      "date": "2025-12-09",
+      "title": "Deeper Learning vs. Deep Learning",
+      "venue": "Medium · Cognitive Neuroeconomics",
+      "text": "How AI disrupts your study habits.",
+      "url": "https://medium.com/cognitive-neuroeconomics/deeper-learning-is-being-replaced-by-deep-learning-how-ai-disrupts-your-study-habits-d13cacc947a6"
+    },
+    {
+      "id": "write-world-models",
+      "modality": "write",
+      "date": "2026-03-15",
+      "title": "From Recognition to Generation to World Models",
+      "venue": "Medium",
+      "text": "The arc of ML model development: from discriminative recognition models to generative models, and now toward world models that internally simulate environments.",
+      "url": "https://medium.com/@jiw188/ml-models-from-recognition-to-generation-to-world-models-3909780c32eb"
+    }
+  ],
+  "links": []
+}

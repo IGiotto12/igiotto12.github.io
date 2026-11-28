@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Jiaqi Wu’s photographs, art, and thoughts.">
+  <meta name="description" content="What Jiaqi Wu sees, makes, writes, and thinks: photographs, art, writing, and notes.">
   <title>Misc | Jiaqi Wu</title>
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Jiaqi Wu">
   <meta property="og:title" content="Misc | Jiaqi Wu">
-  <meta property="og:description" content="Photographs, art, and thoughts.">
+  <meta property="og:description" content="What I see, make, write, and think.">
   <meta property="og:url" content="https://igiotto12.github.io/pages/misc.html">
   <meta property="og:image" content="https://igiotto12.github.io/src/thumbs/selfie.jpg">
   <meta name="twitter:card" content="summary">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/reset.css?v=20261126">
-  <link rel="stylesheet" href="../css/style.css?v=20261126">
-  <link rel="stylesheet" href="../css/misc.css?v=20261126">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/reset.css?v=20261128">
+  <link rel="stylesheet" href="../css/style.css?v=20261128">
+  <link rel="stylesheet" href="../css/misc.css?v=20261128">
   <link rel="icon" href="../icon/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="../icon/favicon.png">
 </head>
@@ -39,59 +39,89 @@
     </div>
   </header>
 
-  <main class="misc-main">
-    <div class="misc-intro">
-      <div>
+  <main class="twin" id="twin">
+    <div class="twin-bar">
+      <div class="twin-heading">
         <h1>Misc</h1>
-        <p>A little bit of everything.</p>
+        <p>What I see, make, write, and think.</p>
       </div>
-      <div class="misc-jumps" aria-label="On this page">
-        <a href="#photos">Photos <span aria-hidden="true">↗</span></a>
-        <a href="#art">Art <span aria-hidden="true">↗</span></a>
-        <a href="#thoughts">Thoughts <span aria-hidden="true">↗</span></a>
-      </div>
+      <ul class="twin-legend" aria-label="How to read the map">
+        <li class="legend-line" hidden><svg viewBox="0 0 40 8" aria-hidden="true"><path d="M2 4H38"/></svg>made by me</li>
+        <li class="legend-line" hidden><svg viewBox="0 0 40 8" aria-hidden="true"><path class="is-idea" d="M2 4H38"/></svg>a shared idea</li>
+        <li class="legend-hint legend-hover">Hover to trace · click to open</li>
+        <li class="legend-hint legend-touch">Tap a piece to open it · swipe the map</li>
+      </ul>
     </div>
 
-    <section id="photos" class="misc-section" aria-labelledby="photos-title">
-      <h2 id="photos-title">Photos</h2>
-      <div class="photo-gallery">
-        <a href="../data/4DA3C77E-4242-4364-8310-0070273B33D7_1_105_c.jpeg" target="_blank" rel="noopener noreferrer" aria-label="View full photo: paraglider above the ocean">
-          <img src="../data/4DA3C77E-4242-4364-8310-0070273B33D7_1_105_c.jpeg" alt="A paraglider above the ocean, with sunlight reflected on the water" width="1024" height="768" decoding="async">
-        </a>
-        <a href="../data/1B262075-9933-47D9-9A42-5D78681675B7_1_105_c.jpeg" target="_blank" rel="noopener noreferrer" aria-label="View full photo: coastal sunset">
-          <img src="../data/1B262075-9933-47D9-9A42-5D78681675B7_1_105_c.jpeg" alt="The sun setting over the coast beyond a wooden fence and coastal plants" width="1024" height="768" decoding="async">
-        </a>
-        <a href="../data/12A58DF7-14D8-464B-996E-147A949BFA70_1_105_c.jpeg" target="_blank" rel="noopener noreferrer" aria-label="View full photo: moon above the coastline at dusk">
-          <img src="../data/12A58DF7-14D8-464B-996E-147A949BFA70_1_105_c.jpeg" alt="A crescent moon above coastal buildings and an orange horizon at dusk" width="768" height="1024" decoding="async">
-        </a>
+    <section class="mind" id="mind" aria-label="Mind: everything here, traced back to me">
+      <div class="mind-scroll">
+        <div class="mind-map" id="mind-map"></div>
       </div>
+      <p class="twin-status" id="twin-status" role="status">Loading…</p>
     </section>
 
-    <section id="art" class="misc-section" aria-labelledby="art-title">
-      <h2 id="art-title">Art</h2>
-      <article class="art-piece" aria-labelledby="fine-title">
-        <a href="https://drive.google.com/file/d/1qU5fKgSc5LvM1Xhv1EO9SKUvrKhUaF75/view?usp=sharing" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-          <img src="../src/thumbs/fine-tune.webp" alt="" width="714" height="470" loading="lazy">
-        </a>
-        <div>
-          <h3 id="fine-title"><a href="https://drive.google.com/file/d/1qU5fKgSc5LvM1Xhv1EO9SKUvrKhUaF75/view?usp=sharing" target="_blank" rel="noopener noreferrer">Fine-t_ne</a></h3>
-          <p class="art-meta">Generative art</p>
-          <p>MECHANICA X MORTALIS — an exploration of AI and artistic expression.</p>
-          <a class="art-link" href="https://drive.google.com/file/d/1qU5fKgSc5LvM1Xhv1EO9SKUvrKhUaF75/view?usp=sharing" target="_blank" rel="noopener noreferrer">Watch the demo ↗</a>
+    <div class="timeline" id="timeline">
+      <div class="tl-track" id="tl-track">
+        <div class="tl-rail" aria-hidden="true"></div>
+        <div class="tl-past" id="tl-past" aria-hidden="true"></div>
+        <div class="tl-marks" id="tl-marks"></div>
+        <div class="tl-handle" id="tl-handle" role="slider" tabindex="0" aria-label="Show what I had made by">
+          <span class="tl-label" id="tl-label">Now</span>
+          <span class="tl-hint" id="tl-hint" aria-hidden="true">drag to rewind</span>
         </div>
-      </article>
-    </section>
-
-    <section id="thoughts" class="misc-section" aria-labelledby="thoughts-title">
-      <h2 id="thoughts-title">Thoughts</h2>
-      <p class="misc-essay"><a href="https://medium.com/cognitive-neuroeconomics/deeper-learning-is-being-replaced-by-deep-learning-how-ai-disrupts-your-study-habits-d13cacc947a6" target="_blank" rel="noopener noreferrer">Deeper Learning vs. Deep Learning ↗</a><span>How AI disrupts your study habits · Medium</span></p>
-      <div id="misc-notes" class="misc-notes" aria-busy="true"><p>Loading notes…</p></div>
-      <noscript><p>JavaScript is needed to load these notes. <a href="../data/thoughts.json">Read the notes as text.</a></p></noscript>
-    </section>
-
+        <div class="tl-tip" id="tl-tip" role="tooltip" hidden></div>
+      </div>
+    </div>
   </main>
+
+  <dialog class="piece-window" id="piece-window">
+    <div class="pw-body" id="pw-body"></div>
+  </dialog>
+
+  <!-- Hand-drawn marks for the four ways I make things. -->
+  <svg class="icon-sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-see" viewBox="0 0 32 32">
+      <path d="M2.8 16.6C6.6 10.4 11 7.6 16.1 7.7c5 .1 9.3 3 13.1 8.7-3.7 5.8-8.1 8.7-13.2 8.6-5.1 0-9.5-2.9-13.2-8.4Z"/>
+      <circle cx="16.1" cy="16.3" r="4.9"/>
+      <circle cx="16.1" cy="16.3" r="1.9" fill="currentColor" stroke="none"/>
+      <path d="M16 2.9v2.4M9.4 4.6l1.3 2.1M22.8 4.5l-1.4 2.1"/>
+    </symbol>
+    <symbol id="i-make" viewBox="0 0 32 32">
+      <path d="M16.1 9.4 25 13.8l-.1 9.7-8.9 4.6-8.9-4.5.1-9.8Z"/>
+      <path d="M7.3 13.9 16 18.2l8.9-4.4M16 18.2v9.8"/>
+      <path d="M25.6 3.4v5M23.1 5.9h5"/>
+      <path d="M5.2 5.8 7 7.6M4.6 10.4l1.6-.4"/>
+    </symbol>
+    <symbol id="i-write" viewBox="0 0 32 32">
+      <path d="M21.4 4.2 27.8 10.6 13.7 24.7l-7.7 1.6 1.4-7.9Z"/>
+      <path d="M7.4 18.4l6.3 6.3M18.4 7.2l6.4 6.4"/>
+      <path d="M3.2 29.4c2.2-1.4 3.6-1.3 5-.4 1.5.9 2.9 1 4.9-.3"/>
+    </symbol>
+    <symbol id="i-think" viewBox="0 0 32 32">
+      <path d="M10.3 20.9c-3.7.1-6.4-2.3-6.4-5.5 0-2.7 2-4.8 4.8-5.2.9-3.4 3.8-5.6 7.3-5.5 3 .1 5.5 1.7 6.6 4.2 3.4.2 5.9 2.7 5.9 5.8 0 3.4-2.8 6.1-6.4 6Z"/>
+      <circle cx="9.1" cy="25.3" r="1.9"/>
+      <circle cx="5.3" cy="28.8" r="1.1"/>
+      <path d="M12.6 13.6c1.3-1.6 3.1-1.7 4.3-.4 1.1 1.2 2.9 1.1 4.1-.3"/>
+    </symbol>
+  </svg>
+
+  <noscript>
+    <div class="twin-noscript">
+      <p>This page needs JavaScript for its map. Everything on it is also here:</p>
+      <ul>
+        <li><a href="../data/4DA3C77E-4242-4364-8310-0070273B33D7_1_105_c.jpeg">Photo: paraglider over the ocean</a></li>
+        <li><a href="../data/12A58DF7-14D8-464B-996E-147A949BFA70_1_105_c.jpeg">Photo: moon at dusk</a></li>
+        <li><a href="../data/1B262075-9933-47D9-9A42-5D78681675B7_1_105_c.jpeg">Photo: coastal sunset</a></li>
+        <li><a href="../src/fine-t_ne.mp4">Art: Fine-t_ne (video)</a></li>
+        <li><a href="https://medium.com/@jiw188/ml-models-from-recognition-to-generation-to-world-models-3909780c32eb">Writing: From Recognition to Generation to World Models</a></li>
+        <li><a href="https://medium.com/cognitive-neuroeconomics/deeper-learning-is-being-replaced-by-deep-learning-how-ai-disrupts-your-study-habits-d13cacc947a6">Writing: Deeper Learning vs. Deep Learning</a></li>
+        <li><a href="../data/thoughts.json">Thoughts (as text)</a></li>
+      </ul>
+    </div>
+  </noscript>
+
   <footer><p>© 2026 Jiaqi Wu</p><a href="../index.html">Back to the main page ↗</a></footer>
-  <script src="../js/app.js?v=20261126"></script>
-  <script src="../js/misc.js?v=20261126"></script>
+  <script src="../js/app.js?v=20261128"></script>
+  <script src="../js/misc.js?v=20261128"></script>
 </body>
 </html>
